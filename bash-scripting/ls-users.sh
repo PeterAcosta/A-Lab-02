@@ -26,8 +26,6 @@ C9a="\e[0;90m"   # dark gray
 C9b="\e[1;90m"   # bold dark gray
 
 
-
-
 echo "\n$C4b L I S T    U S E R S    &    G R O U P S   :$C0 "
 echo " ---------------------------------------------------"
 echo " 1) List USERs   (file /etc/passwd sort by UID)"
@@ -42,7 +40,6 @@ echo " "
 read -p " Enter an option ( 0 to exit )  : " option > /dev/null
 echo " you chose: $option \n \n"
 
- 
 
 
 if [ "$option" = "1" ]

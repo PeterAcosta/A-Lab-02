@@ -25,8 +25,6 @@ C9b="\e[1;90m"   # bold dark gray
 LINE_1="$C4a-------------------------------------------------------------------------------------------------------------------------------------$C0"
 LINE_2="$C4a- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -$C0"
 
-
-
 DOCKER_PS_AQ=$(docker ps -aq)
 
 clear
@@ -38,8 +36,6 @@ docker stats --no-stream
 echo $LINE_2
 echo "${C4b}free -m -h$C0" 
 free -m -h
-
-
 
 echo $LINE_1
 echo "${C4b}RUNNING CONTAINERS   ( status=running ) :$C0"
