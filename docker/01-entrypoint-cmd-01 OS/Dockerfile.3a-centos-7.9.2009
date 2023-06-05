@@ -1,0 +1,43 @@
+
+ARG IMAGE_NAME="centos:centos7.5.1804"
+FROM ${IMAGE_NAME}
+ARG IMAGE_NAME
+# FROM centos:centos7.5.1804
+
+ENV THIS_IMAGE=${IMAGE_NAME}
+
+# Copia el archivo entrypoint.sh a la imagen
+COPY entrypoint.02.sh /usr/local/bin/entrypoint.sh
+
+
+RUN yum -y update && \
+    curl -o /etc/yum.repos.d/konimex-neofetch-epel-7.repo https://copr.fedorainfracloud.org/coprs/konimex/neofetch/repo/epel-7/konimex-neofetch-epel-7.repo && \
+    yum -y install neofetch && \
+    yum -y install epel-release && \
+    echo -e "\nPS1='{ \033[01;33m\]$THIS_IMAGE\[\033[00m\] } [\[\033[1;31m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]] \$ '" >> /root/.bashrc && \
+    echo -e "alias ls='ls --color=auto' \nalias ll='ls -alF' \nalias lk='ls -l'" >> /root/.bashrc &&\
+    # Otorga permisos de ejecución al archivo entrypoint.sh
+    chmod +x /usr/local/bin/entrypoint.sh
+
+RUN yum -y install figlet && \
+    yum -y install mc && \
+    yum clean all
+
+ 
+# Define el comando de entrada predeterminado
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+ 
+# Define el comando predeterminado si no se proporciona ninguno al iniciar el contenedor
+CMD ["/bin/bash"] 
+
+
+# image-3a-centos-7.9.2009:3a
+# 3a-centos-7.9.2009
+
+# docker build --tag image-3a-centos-7.9.2009:3a -f Dockerfile.3a-centos-7.9.2009 .
+# docker history -H image-3a-centos-7.9.2009:3a --no-trunc
+
+# docker run --name 3a-centos-7.9.2009 image-3a-centos-7.9.2009:3a
+# docker exec -ti 3a-centos-7.9.2009 bash
+
+# docker rm -f 3a-centos-7.9.2009 && docker rmi image-3a-centos-7.9.2009:3a
