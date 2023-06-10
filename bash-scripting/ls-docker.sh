@@ -25,44 +25,78 @@ C9b="\e[1;90m"   # bold dark gray
 LINE_1="$C4a-------------------------------------------------------------------------------------------------------------------------------------$C0"
 LINE_2="$C4a- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -$C0"
 
+
+
 DOCKER_PS_AQ=$(docker ps -aq)
+DOCKER_PS_RUNNING=$(docker ps -q --filter status=running )
+DOCKER_PS_EXITED=$(docker ps  -q --filter status=exited  )
 
 clear
 
-echo $LINE_1
-echo "${C4b}docker stats --no-stream  $C0"
-docker stats --no-stream
-
+### MEMORY #################################################
 echo $LINE_2
 echo "${C4b}free -m -h$C0" 
 free -m -h
 
+
+### STATS  #################################################
+echo $LINE_1
+echo "${C4b}docker stats --no-stream  $C0"
+docker stats --no-stream
+
+
+### RUNNING  ################################################
 echo $LINE_1
 echo "${C4b}RUNNING CONTAINERS   ( status=running ) :$C0"
 docker ps --filter status=running --format 'table {{ .ID }}\t{{ .Names }}\t{{.Image}}\t{{.Command}}\t{{.Ports}}\t{{.RunningFor}}\t{{.Status}}'
-	
+
+
+### EXITING  ###############################################
 echo $LINE_2
 echo "${C4b}STOPPED CONTAINERS   ( status=exited )  :$C0"
-docker ps --filter status=exited --format 'table {{ .ID }}\t{{ .Names }}\t{{.Image}}\t{{.Command}}\t{{.Ports}}\t{{.RunningFor}}\t{{.Status}}'
+if [ "$DOCKER_PS_EXITED" ] ; then
+    docker ps --filter status=exited --format 'table {{ .ID }}\t{{ .Names }}\t{{.Image}}\t{{.Command}}\t{{.Ports}}\t{{.RunningFor}}\t{{.Status}}'
+else
+    echo  "${C9a}none $C0"
+fi
 
+
+### LIST ALL CONTAINERS  ####################################
 echo $LINE_2
-echo "${C4b}docker ps -a  $C0"
+echo "${C4b}docker ps -a  $C9a"
 docker ps -a
+echo -n $C0
 
+
+### IPs & RESTART  ##########################################
 echo $LINE_1
-echo "${C4b}IPs              NAMES  $C0"
-if [ "$DOCKER_PS_AQ" ] ; then docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}} %tab% {{.Name}}' $DOCKER_PS_AQ | sed 's#%tab%#\t#g' | sed 's#/##g' | sort -t . -k 1,1n -k 2,2n -k 3,3n -k 4,4n; fi
+if [ "$DOCKER_PS_AQ" ] ; then
+    docker inspect -f '{{.ID}} %tab% {{.Name}} %tab% {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}} %tab% {{.RestartCount}}' $DOCKER_PS_AQ |  \
+        sed 's#%tab%#\t#g' |  \
+        awk '{print substr($1, 0, 12), $2, $3, $4}' |  \
+        sed 's#/##g' |  \
+        sort |  \
+        column -t -o "   " -N "CONTAINER ID,NAMES,IP,RESTART" |  \
+        awk 'NR==1 {print "\033[1;34m" $0 "\033[0m"} NR>1'
+fi
 
+
+### VOLUMES #################################################
 echo $LINE_1
 echo "${C4b}docker volume ls  $C0"
 docker volume ls
 
+
+### IMAGES  #################################################
 echo $LINE_1
 echo "${C4b}docker images  $C0"
 docker images
 
+
+### NETWORK #################################################
 echo $LINE_1
 echo "${C4b}docker network ls  $C0"
 docker network ls
+
 
 echo $LINE_1
