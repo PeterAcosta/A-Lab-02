@@ -7,7 +7,6 @@
 
 
 # my color codes :
-color_prompt=yes
 C0="\e[0m"       # default
 C1a="\e[0;31m"   # red
 C1b="\e[1;31m"   # bold red

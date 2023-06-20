@@ -35,58 +35,58 @@ C9b="\e[1;90m"   # bold dark gray
 LINE1="// 0123456789. abcdefghijklmnopqrstuvwxyz // -------------------------------------- // ====================================== //"
 
 clear
-echo "\n Colors : my color codes for my bash files @ debian-ubuntu-mint\n"
+echo -e "\n Colors : my color codes for my bash files @ debian-ubuntu-mint\n"
 
-echo "$C0\$C0 : default \t\t code : '\\$C0'"
-echo $LINE1
+echo -e "$C0\$C0 : default \t\t code : '\\$C0'"
+echo -e $LINE1
 echo 
 
-echo "$C1a\$C1a : red \t\t code : '\\$C1a'"
-echo $LINE1
-echo "$C1b\$C1b : bold red \t code : '\\$C1b'"
-echo $LINE1
+echo -e "$C1a\$C1a : red \t\t code : '\\$C1a'"
+echo -e $LINE1
+echo -e "$C1b\$C1b : bold red \t code : '\\$C1b'"
+echo -e $LINE1
 echo " "
 
-echo "$C2a\$C2a : green \t\t code : '\\$C2a'"
-echo $LINE1
-echo "$C2b\$C2b : bold green \t code : '\\$C2b'"
-echo $LINE1
+echo -e "$C2a\$C2a : green \t\t code : '\\$C2a'"
+echo -e $LINE1
+echo -e "$C2b\$C2b : bold green \t code : '\\$C2b'"
+echo -e $LINE1
 echo " "
 
-echo "$C3a\$C3a : yellow \t\t code : '\\$C3a'"
-echo $LINE1
-echo "$C3b\$C3b : bold yellow \t code : '\\$C3b'"
-echo $LINE1
+echo -e "$C3a\$C3a : yellow \t\t code : '\\$C3a'"
+echo -e $LINE1
+echo -e "$C3b\$C3b : bold yellow \t code : '\\$C3b'"
+echo -e $LINE1
 echo " "
 
-echo "$C4a\$C4a : blue \t\t code : '\\$C4a'"
-echo $LINE1
-echo "$C4b\$C4b : bold blue \t code : '\\$C4b'"
-echo $LINE1
+echo -e "$C4a\$C4a : blue \t\t code : '\\$C4a'"
+echo -e $LINE1
+echo -e "$C4b\$C4b : bold blue \t code : '\\$C4b'"
+echo -e $LINE1
 echo " "
 
-echo "$C5a\$C5a : purple \t\t code : '\\$C5a'"
-echo $LINE1
-echo "$C5b\$C5b : bold purple \t code : '\\$C5b'"
-echo $LINE1
+echo -e "$C5a\$C5a : purple \t\t code : '\\$C5a'"
+echo -e $LINE1
+echo -e "$C5b\$C5b : bold purple \t code : '\\$C5b'"
+echo -e $LINE1
 echo " "
 
-echo "$C6a\$C6a : cyan \t\t code : '\\$C6a'"
-echo $LINE1
-echo "$C6b\$C6b : bold cyan \t code : '\\$C6b'"
-echo $LINE1
+echo -e "$C6a\$C6a : cyan \t\t code : '\\$C6a'"
+echo -e $LINE1
+echo -e "$C6b\$C6b : bold cyan \t code : '\\$C6b'"
+echo -e $LINE1
 echo " "
 
-echo "$C7a\$C7a : light gray \t code : '\\$C7a'"
-echo $LINE1
-echo "$C7b\$C7b : bold light gray \t code : '\\$C7b'"
-echo $LINE1
+echo -e "$C7a\$C7a : light gray \t code : '\\$C7a'"
+echo -e $LINE1
+echo -e "$C7b\$C7b : bold light gray \t code : '\\$C7b'"
+echo -e $LINE1
 echo " "
 
-echo "$C9a\$C9a : dark gray \t code : '\\$C9a'"
-echo $LINE1
-echo "$C9b\$C9b : bold dark gray \t code : '\\$C9b'"
-echo $LINE1
+echo -e "$C9a\$C9a : dark gray \t code : '\\$C9a'"
+echo -e $LINE1
+echo -e "$C9b\$C9b : bold dark gray \t code : '\\$C9b'"
+echo -e $LINE1
 echo " "
 
-echo $C0
+echo -e $C0
