@@ -7,6 +7,7 @@
 
 
 # my color codes :
+color_prompt=yes
 C0="\e[0m"       # default
 C1a="\e[0;31m"   # red
 C1b="\e[1;31m"   # bold red
@@ -26,7 +27,9 @@ C9a="\e[0;90m"   # dark gray
 C9b="\e[1;90m"   # bold dark gray
 
 
-echo "\n$C4b L I S T    U S E R S    &    G R O U P S   :$C0 "
+
+
+echo -e "\n$C4b L I S T    U S E R S    &    G R O U P S   :$C0 "
 echo " ---------------------------------------------------"
 echo " 1) List USERs   (file /etc/passwd sort by UID)"
 echo " 2) List USERs   (file /etc/passwd sort by USERNAME)"
@@ -40,6 +43,7 @@ echo " "
 read -p " Enter an option ( 0 to exit )  : " option > /dev/null
 echo " you chose: $option \n \n"
 
+ 
 
 
 if [ "$option" = "1" ]
@@ -57,9 +61,9 @@ if [ "$option" = "1" ]
         fi
         TITLE=' UID      USERNAME              P  GID     UserInfo                                      home                      shell'
         UNDER=' -------  --------------------  -  ------- --------------------------------------------  ------------------------  -------------------------'
-        echo "$C4b U S E R S  : $C0 file  $FILE_NAME  (sorted by UserID):  $CANT\n\n$C4a$TITLE\n$UNDER$C0"
-        echo "$GREP_FILE" | awk -F: '{ printf " %-7s  %-20s  %1s  %-7s %-45s %-25s %-20s \n",$3,$1,$2,$4,$5,$6,$7 }' | sort -n 
-        echo "$C4a$UNDER\n$TITLE$C0\n"
+        echo -e "$C4b U S E R S  : $C0 file  $FILE_NAME  (sorted by UserID):  $CANT\n\n$C4a$TITLE\n$UNDER$C0"
+        echo -e "$GREP_FILE" | awk -F: '{ printf " %-7s  %-20s  %1s  %-7s %-45s %-25s %-20s \n",$3,$1,$2,$4,$5,$6,$7 }' | sort -n 
+        echo -e "$C4a$UNDER\n$TITLE$C0\n"
         exit 0
 
 
@@ -78,9 +82,9 @@ elif [ "$option" = "2" ]
         fi
         TITLE=' USERNAME              UID      P  GID      UserInfo                                      home                      shell'
         LINEX=' --------------------- -------  -  -------  --------------------------------------------  ------------------------  -------------------------'
-        echo "$C4b U S E R S  : $C0 file  $FILE_NAME  (sorted by USERNAME):  $CANT\n\n$C4a$TITLE\n$LINEX$C0"
-        echo "$GREP_FILE" | awk -F: '{printf " %-20s  %-7s  %1s  %-7s  %-45s %-25s %-20s \n",$1,$3,$2,$4,$5,$6,$7 }' | sort -k 1
-        echo "$C4a$LINEX\n$TITLE$C0\n"
+        echo -e "$C4b U S E R S  : $C0 file  $FILE_NAME  (sorted by USERNAME):  $CANT\n\n$C4a$TITLE\n$LINEX$C0"
+        echo -e "$GREP_FILE" | awk -F: '{printf " %-20s  %-7s  %1s  %-7s  %-45s %-25s %-20s \n",$1,$3,$2,$4,$5,$6,$7 }' | sort -k 1
+        echo -e "$C4a$LINEX\n$TITLE$C0\n"
         exit 0
 
 
@@ -99,9 +103,9 @@ elif [ "$option" = "3" ]
         fi
         TITLE=" GID      GROUP NAME            P  Users"
         LINEX=" -------- --------------------- -  --------------------------------"
-        echo "$C4b G R O U P S  : $C0 file  $FILE_NAME  (sorted by GroupID):  $CANT\n\n$C4a$TITLE\n$LINEX$C0"
-        echo "$GREP_FILE" | awk -F: '{printf " %-7s  %-20s  %1s  %-30s \n",$3,$1,$2,$4 }' | sort -n 
-        echo "$C4a$LINEX\n$TITLE$C0\n"
+        echo -e "$C4b G R O U P S  : $C0 file  $FILE_NAME  (sorted by GroupID):  $CANT\n\n$C4a$TITLE\n$LINEX$C0"
+        echo -e "$GREP_FILE" | awk -F: '{printf " %-7s  %-20s  %1s  %-30s \n",$3,$1,$2,$4 }' | sort -n 
+        echo -e "$C4a$LINEX\n$TITLE$C0\n"
         exit 0
 
 
@@ -120,9 +124,9 @@ elif [ "$option" = "4" ]
         fi
         TITLE=" GROUP NAME            GID      P  Users"
         LINEX=" --------------------- -------- -  --------------------------------"
-        echo "$C4b G R O U P S  : $C0 file  $FILE_NAME  (sorted by GROUP NAME):  $CANT\n\n$C4a$TITLE\n$LINEX$C0"
-        echo "$GREP_FILE" | awk -F: '{printf " %-20s  %-7s  %1s  %-30s \n",$1,$3,$2,$4 }' | sort 
-        echo "$C4a$LINEX\n$TITLE$C0\n"
+        echo -e "$C4b G R O U P S  : $C0 file  $FILE_NAME  (sorted by GROUP NAME):  $CANT\n\n$C4a$TITLE\n$LINEX$C0"
+        echo -e "$GREP_FILE" | awk -F: '{printf " %-20s  %-7s  %1s  %-30s \n",$1,$3,$2,$4 }' | sort 
+        echo -e "$C4a$LINEX\n$TITLE$C0\n"
         exit 0
 
 
@@ -135,20 +139,20 @@ elif [ "$option" = "5" ]
         GREP_FILE=$(cat $FILE_NAME | grep -v '^$'| sort -t: -k3n)
         TITLE=' UID      USERNAME              GID      Groups'
         LINEX=' -------  --------------------- -------  -------------------------------------------------------------------------------------'
-        echo "$C4b U S E R S   I N   T H E I R   G R O U P S  $C0 (sorted by UserID):\n\n$C4a$TITLE\n$LINEX$C0"
-        echo "$GREP_FILE" | while IFS=: read -r username password uid gid info home shell; do
+        echo -e "$C4b U S E R S   I N   T H E I R   G R O U P S  $C0 (sorted by UserID):\n\n$C4a$TITLE\n$LINEX$C0"
+        echo -e "$GREP_FILE" | while IFS=: read -r username password uid gid info home shell; do
             if [ -n "$username" ]; then
                 printf " %-7s  %-20s  %-7s " $uid $username $gid
                 XGROUPS="$(id $uid | cut -d '=' -f 4 | sed 's#(#:#g' | sed 's#)# #g'| sed 's#,# #g')"               
                 NCOL=$C0
                 for ngr in $XGROUPS; do
-                    echo -n "$NCOL $ngr "
+                    echo -n -e "$NCOL $ngr "
                     NCOL=$C9b
                 done
-                echo "$C0"
+                echo -e "$C0"
             fi
         done 
-        echo "$C4a$LINEX\n$TITLE$C0\n"
+        echo -e "$C4a$LINEX\n$TITLE$C0\n"
         exit 0
 
 
@@ -160,32 +164,32 @@ elif [ "$option" = "6" ]
         GREP_FILE=$(cat $FILE_NAME | grep -v '^$'| sort -t: -k1n)
         TITLE=' USERNAME              UID      GID      Groups'
         LINEX=' --------------------- -------  -------  ------------------------------------------------------------------------------------'
-        echo "$C4b U S E R S   I N   T H E I R   G R O U P S  $C0 (sorted by USERNAME):\n\n$C4a$TITLE\n$LINEX$C0"
-        echo "$GREP_FILE" | while IFS=: read -r username password uid gid info home shell; do
+        echo -e "$C4b U S E R S   I N   T H E I R   G R O U P S  $C0 (sorted by USERNAME):\n\n$C4a$TITLE\n$LINEX$C0"
+        echo -e "$GREP_FILE" | while IFS=: read -r username password uid gid info home shell; do
             if [ -n "$username" ]; then
                 printf " %-20s  %-7s  %-7s " $username $uid $gid
                 XGROUPS="$(id $uid | cut -d '=' -f 4 | sed 's#(#:#g' | sed 's#)# #g'| sed 's#,# #g')"               
                 NCOL=$C0
                 for ngr in $XGROUPS; do
-                    echo -n "$NCOL $ngr "
+                    echo -n -e "$NCOL $ngr "
                     NCOL=$C9b
                 done
-                echo "$C0"
+                echo -e "$C0"
             fi
         done 
-        echo "$C4a$LINEX\n$TITLE$C0\n"
+        echo -e "$C4a$LINEX\n$TITLE$C0\n"
         exit 0
 
 
 elif [ "$option" = "0" ]
     then
         #0 Exit
-        echo " Bye bye.... adios\n"
+        echo -e " Bye bye.... adios\n"
         exit 0
 
 
 else
 
-    echo "[ $option ] Opción invalida.   :(\n"
+    echo -e "[ $option ] Opción invalida.   :(\n"
 
 fi
