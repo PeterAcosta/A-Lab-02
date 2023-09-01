@@ -48,16 +48,16 @@ docker stats --no-stream
 ### RUNNING  ################################################
 echo -e $LINE_1
 echo -e "${C4b}RUNNING CONTAINERS   ( status=running ) :$C0"
-docker ps --filter status=running --format 'table {{ .ID }}\t{{ .Names }}\t{{.Image}}\t{{.Command}}\t{{.Ports}}\t{{.RunningFor}}\t{{.Status}}'
+docker ps --filter status=running --format 'table {{ .ID }}\t{{ .Names }}\t{{.Image}}\t{{.RunningFor}}\t{{.Status}}\t{{.Size}}\t{{.Ports}}'
 
 
 ### EXITING  ###############################################
 echo -e $LINE_2
-echo -e "${C4b}STOPPED CONTAINERS   ( status=exited )  :$C0"
+echo -e "${C4b}STOPPED CONTAINERS   ( status=exited )  :$C5a"
 if [ "$DOCKER_PS_EXITED" ] ; then
     docker ps --filter status=exited --format 'table {{ .ID }}\t{{ .Names }}\t{{.Image}}\t{{.Command}}\t{{.Ports}}\t{{.RunningFor}}\t{{.Status}}'
 else
-    echo -e "${C9a}none $C0"
+    echo -e "none $C0"
 fi
 
 
@@ -84,7 +84,7 @@ fi
 ### VOLUMES #################################################
 echo -e $LINE_1
 echo -e "${C4b}docker volume ls  $C0"
-docker volume ls
+docker volume ls 
 
 
 ### IMAGES  #################################################
