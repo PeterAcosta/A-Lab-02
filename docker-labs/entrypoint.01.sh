@@ -4,6 +4,9 @@
 # '/bin/bash': bash es un tipo de shell, hay otros con los que se puede trabajar en linux si no estas seguro
 # de la version con la que trabajas puedes usar /bin/sh, sh es un alias al shell de tu sistema
 
+echo "soy el entrypoint del contenedor, mi PID es $$"
+
+
 figlet $THIS_IMAGE
 neofetch
 
