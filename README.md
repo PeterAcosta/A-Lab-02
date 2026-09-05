@@ -219,7 +219,7 @@ El fragmento SSH puede incorporarse manualmente a la configuración global
 **Repositorio de prácticas y experimentación** .
 
 
-## Autor
+## Autor :
 
 **Pedro Javier Acosta**
 
