@@ -30,9 +30,6 @@ Centraliza ejemplos prácticos para:
 - **VS Code** mediante una configuración opcional de iconos y reglas de
   columnas.
 
-`status.sh` puede consultar Apache, PHP, MySQL, Node.js y npm del equipo
-anfitrión, pero esos componentes no están instalados ni gestionados por este
-repositorio.
 
 ## Arquitectura
 
