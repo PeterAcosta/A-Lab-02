@@ -1,5 +1,4 @@
-# A-Lab-02
-==========
+# A-Lab-02 :
 
 Colección de laboratorios y utilidades para practicar administración de sistemas
 Linux, scripting con Bash y creación de entornos Docker reproducibles. El
