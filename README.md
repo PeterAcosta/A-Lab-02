@@ -69,7 +69,7 @@ contenedores se identifican con nombres y etiquetas definidos en Compose.
 - `ssh timeout.txt`: fragmento de configuración SSH con
   `ServerAliveInterval 60`; (no es un script ejecutable).
 
-### Entornos Docker
+## Entornos Docker
 
 Compose define estos servicios:
 
