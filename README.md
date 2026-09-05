@@ -221,5 +221,5 @@ El fragmento SSH puede incorporarse manualmente a la configuración global
 
 **Pedro Javier Acosta**
 
-- GitHub: [@peteracosta](https://github.com/peteracosta)
-- LinkedIn: [Tu perfil](https://linkedin.com/in/acosta-peter)
+- GitHub: 	[github.com/peteracosta](https://github.com/peteracosta)
+- LinkedIn: [linkedin.com/in/acosta-peter](https://linkedin.com/in/acosta-peter)
