@@ -1,14 +1,26 @@
 #!/bin/bash
 
+# Definición de colores para la interfaz en terminal
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+NC='\033[0m' # Sin color
+
+
 # Creamos o sobrescribimos el archivo /test.sh con los comandos y la variable evaluada
-cat <<EOF > /test.sh
+cat <<EOF > /usr/local/bin/test.sh
 #!/bin/bash
-figlet "${THIS_IMAGE:-Linux Container}"
+echo -e "\nGenerado por el entrypoint.sh del contenedor: ${YELLOW}${THIS_IMAGE}${NC} "
+echo -e "\nInformación del sistema:${BLUE}"
+cat /etc/os-release
+echo -e "${NC}"
+figlet "${THIS_IMAGE}"
+echo -e ""
 neofetch
 EOF
 
 # Asignamos permisos de ejecución al archivo generado
-chmod +x /test.sh
+chmod +x /usr/local/bin/test.sh
 
 # Esta última línea ejecuta el comando recibido por CMD ("sleep infinity") como PID 1
 exec "$@"
+
