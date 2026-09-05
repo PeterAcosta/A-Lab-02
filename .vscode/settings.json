@@ -12,6 +12,7 @@
 	],
 	"material-icon-theme.folders.associations": {
 
+		"bash-scripting": "bash",
 		"docker-labs": "docker",
 
 	},	
