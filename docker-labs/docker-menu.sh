@@ -67,14 +67,14 @@ launch_container() {
 
 while true; do
     show_header
-    echo -e " ${YELLOW}1)${NC} Para contenedor con Alpine 3.17           (os-1a-alpine)"
-    echo -e " ${YELLOW}2)${NC} Para contenedor con Debian 10 Buster      (os-2a-debian-10-buster)"
-    echo -e " ${YELLOW}3)${NC} Para contenedor con Debian 11 Bullseye    (os-2b-debian-11-bullseye)"
-    echo -e " ${YELLOW}4)${NC} Para contenedor con Ubuntu 23.04          (os-2c-ubuntu-23-04)"
-    echo -e " ${YELLOW}5)${NC} Para contenedor con CentOS 7.9            (os-3a-centos-7-9-2009)"
-    echo -e " ${YELLOW}6)${NC} Para contenedor con RedHat UBI 8.7        (os-4a-redhat-ubi8)"
-    echo -e " ${YELLOW}7)${NC} Para contenedor con Fedora 39             (os-4b-fedora-39)"
-    echo -e " ${YELLOW}8)${NC} Para contenedor con Amazon Linux 2023     (os-5c-amazon-linux-2023)"
+    echo -e " ${YELLOW}1)${NC} Contenedor con Alpine 3.17           	(os-1a-alpine)"
+    echo -e " ${YELLOW}2)${NC} Contenedor con Debian 10 Buster      	(os-2a-debian-10-buster)"
+    echo -e " ${YELLOW}3)${NC} Contenedor con Debian 11 Bullseye    	(os-2b-debian-11-bullseye)"
+    echo -e " ${YELLOW}4)${NC} Contenedor con Ubuntu 23.04 Lunar Lobster	(os-2c-ubuntu-23-04)"
+    echo -e " ${YELLOW}5)${NC} Contenedor con CentOS 7.9            	(os-3a-centos-7-9-2009)"
+    echo -e " ${YELLOW}6)${NC} Contenedor con RedHat UBI 8.7        	(os-4a-redhat-ubi8)"
+    echo -e " ${YELLOW}7)${NC} Contenedor con Fedora 39             	(os-4b-fedora-39)"
+    echo -e " ${YELLOW}8)${NC} Contenedor con Amazon Linux 2023     	(os-5c-amazon-linux-2023)"
     echo -e "${CYAN}--------------------------------------------------------------------${NC}"
     echo -e " ${GREEN}a)${NC} Levantar TODOS los contenedores juntos"
     echo -e " ${GREEN}b)${NC} Estado de los contenedores (docker compose ps)"

@@ -7,7 +7,7 @@ ARG IMAGE_NAME
 ENV THIS_IMAGE=${IMAGE_NAME}
 
 # Copia el archivo entrypoint.sh a la imagen
-COPY entrypoint.02.sh /usr/local/bin/entrypoint.sh
+COPY entrypoint.00.sh /usr/local/bin/entrypoint.sh
 
 
 RUN dnf -y update && \
@@ -20,8 +20,8 @@ RUN dnf -y update && \
 # Define el comando de entrada predeterminado
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
  
-# Define el comando predeterminado si no se proporciona ninguno al iniciar el contenedor
-CMD ["/bin/bash"] 
+# Mantiene el contenedor activo
+CMD ["sleep", "infinity"]
 
 
 
