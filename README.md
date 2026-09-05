@@ -68,6 +68,9 @@ contenedores se identifican con nombres y etiquetas definidos en Compose.
   punto de montaje y tamaño aproximado en MB.
 - `ssh timeout.txt`: fragmento de configuración SSH con
   `ServerAliveInterval 60`; (no es un script ejecutable).
+- `clean-disk.sh`: limpieza de disco para Ubuntu (adaptado para tu servidor AWS)
+
+clean-disk.sh
 
 ## Entornos Docker:
 
@@ -126,6 +129,7 @@ nombres definidos por el proyecto; úsalo únicamente si se desea esa limpieza.
 Desde la raíz del repositorio:
 
 ```bash
+bash bash-scripting/clean-disk.sh
 bash bash-scripting/disk-space.sh
 bash bash-scripting/ls-colors.sh
 bash bash-scripting/ls-users.sh
@@ -148,6 +152,7 @@ El fragmento SSH puede incorporarse manualmente a la configuración global
 ```text
 .
 ├── bash-scripting/
+│   ├── clean-disk.sh
 │   ├── disk-space.sh
 │   ├── ls-colors.sh
 │   ├── ls-docker.sh
