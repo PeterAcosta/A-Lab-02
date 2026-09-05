@@ -206,7 +206,7 @@ El fragmento SSH puede incorporarse manualmente a la configuración global
 - Los scripts formatean la salida con colores ANSI y tablas para facilitar la
   inspección desde una terminal.
 - No se incorporan dependencias de una aplicación ni automatización de
-  despliegue: **el objetivo es didáctico y operativo**.
+  despliegue: **el objetivo es de estudio y pruebas**.
 
 
 
