@@ -90,3 +90,4 @@ echo -e $LINE1
 echo " "
 
 echo -e $C0
+exit 0
