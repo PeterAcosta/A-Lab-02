@@ -1,0 +1,19 @@
+{
+	// Esta configuración está desactivada
+	"editor.rulers": [
+		{
+			"column": 79,
+			"color": "#00ff0033"
+		},
+		{
+			"column": 119,
+			"color": "#ff000055"
+		}
+	],
+	"material-icon-theme.folders.associations": {
+
+		"docker-labs": "docker",
+
+	},	
+	
+}
