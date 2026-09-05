@@ -3,6 +3,13 @@
 help: ## Comando de ayuda
 	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
 
+
+
+bake: ##        Usa docker compose BAKE para construir y levantar los contenedores
+	COMPOSE_BAKE=true docker compose up -d
+
+
+
 show_me_all: ## me muestra las imagenes y los contenedores:
 	clear
 	@echo "=============================================================================================================================="
@@ -23,8 +30,7 @@ show_me_all: ## me muestra las imagenes y los contenedores:
 	@echo "\n=============================================================================================================================="
 
 
-
-delete_all: ## Borra las imagenes y los contenedore
+delete_all: ##  Borra las imagenes y los contenedore
 	clear
 	@echo "------------------------------------------------------------------------------------------------------------------------------"
 	@echo "Borro contenedores:"
