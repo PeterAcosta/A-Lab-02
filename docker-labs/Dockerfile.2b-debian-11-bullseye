@@ -1,4 +1,10 @@
-FROM debian:bullseye-20230411
+ARG IMAGE_NAME="debian:bullseye-20230411"
+FROM ${IMAGE_NAME}
+ARG IMAGE_NAME
+# FROM debian:bullseye-20230411
+
+ENV THIS_IMAGE=${IMAGE_NAME}
+
 
 # Configurar repositorios históricos de Debian 11
 RUN echo 'deb http://archive.debian.org/debian bullseye main' > /etc/apt/sources.list && \
@@ -10,7 +16,7 @@ RUN echo 'deb http://archive.debian.org/debian bullseye main' > /etc/apt/sources
 	rm -rf /var/lib/apt/lists/*
 
 # Copiar entrypoint
-COPY entrypoint.01.sh /usr/local/bin/entrypoint.sh
+COPY entrypoint.00.sh /usr/local/bin/entrypoint.sh
 
 # Configurar prompt, alias y permisos
 RUN echo "\nPS1='{ \033[01;33m\]debian:bullseye-20230411\[\033[00m\] } [\[\033[1;31m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]] $ '" >> /root/.bashrc && \

@@ -49,7 +49,7 @@ launch_container() {
             echo -e "${NC}[*] Conectando a la shell de ${YELLOW}${container_name}...${NC}"
 			echo -e "${CYAN}    (run: cat /etc/os-release )${NC}"
 			echo -e "${CYAN}    (run: neofetch )${NC}"
-			echo -e "${CYAN}    (run: ./usr/local/bin/test.sh )${NC}\n"
+			echo -e "${CYAN}    (run: ./usr/local/bin/os-data.sh )${NC}\n"
             if [ "$service_name" == "os-1a-alpine" ]; then
                 # docker exec -it $container_name /bin/sh || docker exec -it $container_name /bin/bash
 				docker exec -it $container_name /bin/bash
@@ -78,8 +78,8 @@ while true; do
     echo -e "${CYAN}--------------------------------------------------------------------${NC}"
     echo -e " ${GREEN}a)${NC} Levantar TODOS los contenedores juntos"
     echo -e " ${GREEN}b)${NC} Estado de los contenedores (docker compose ps)"
-    echo -e " ${RED}c)${NC} Detener y eliminar TODOS los contenedores"
-	echo -e " ${RED}d)${NC} Eliminar TODOS las imagenes"
+    echo -e " ${RED}c)${NC} Detener y eliminar TODOS los contenedores 	${RED}(cuidado)${NC}"
+	echo -e " ${RED}d)${NC} Eliminar TODAS las imagenes 		${RED}(cuidado)${NC}"
     echo -e " ${GREEN}0)${NC} Salir del programa"
     echo -e "${CYAN}====================================================================${NC}"
     
