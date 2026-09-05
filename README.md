@@ -69,7 +69,7 @@ contenedores se identifican con nombres y etiquetas definidos en Compose.
 - `ssh timeout.txt`: fragmento de configuración SSH con
   `ServerAliveInterval 60`; (no es un script ejecutable).
 
-## Entornos Docker
+## Entornos Docker:
 
 Compose define estos servicios:
 
@@ -117,9 +117,9 @@ Alpine se accede con `sh`; las demás imágenes están configuradas con
 imagen.
 
 
-También se pueden consultar recursos con `make show_me_all`. `make delete_all` 
-elimina de forma forzada los contenedores e imágenes con los nombres definidos 
-por el proyecto; úsalo únicamente si se desea esa limpieza.
+También se pueden consultar recursos con `make show_me_all`. 
+`make delete_all` elimina de forma forzada los contenedores e imágenes con los 
+nombres definidos por el proyecto; úsalo únicamente si se desea esa limpieza.
 
 ### Ejecutar las utilidades Bash
 
