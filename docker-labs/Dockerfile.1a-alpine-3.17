@@ -6,18 +6,18 @@ ARG IMAGE_NAME
 ENV THIS_IMAGE=${IMAGE_NAME}
 
 # Copia el archivo entrypoint.sh a la imagen
-COPY entrypoint.01.sh /usr/local/bin/entrypoint.sh
+COPY entrypoint.00.sh /usr/local/bin/entrypoint.sh
 # COPY entrypoint.01.sh /tmp/entrypoint.sh
 
 RUN apk update && apk upgrade --available && sync && \
     # chmod +x /tmp/entrypoint.sh  && \
     chmod +x /usr/local/bin/entrypoint.sh  && \
+    apk add figlet && \
     apk add neofetch && \
     apk add mc && \
     echo "PS1='{ \033[01;33m\]$THIS_IMAGE\[\033[00m\] } [\[\033[1;31m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]] \$ '" >> /root/.bashrc && \
     echo "alias ll='ls -alF'" >> /root/.bashrc &&\
-    echo "alias lk='ls -l'" >> /root/.bashrc &&\
-    apk add figlet
+    echo "alias lk='ls -l'" >> /root/.bashrc
     
 
 
@@ -26,8 +26,8 @@ RUN apk update && apk upgrade --available && sync && \
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
  
 # Define el comando predeterminado si no se proporciona ninguno al iniciar el contenedor
-# CMD ["sh"] 
-CMD ["/bin/bash"] 
+# Este hace que el contenedor permanezca vivo indefinidamente, lo que permite la ejecución de comandos dentro del contenedor.
+CMD ["tail", "-f", "/dev/null"]
 
 
 

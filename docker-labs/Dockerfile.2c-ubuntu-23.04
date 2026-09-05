@@ -17,11 +17,16 @@ RUN apt update && \
     # Otorga permisos de ejecución al archivo entrypoint.sh
     chmod +x /usr/local/bin/entrypoint.sh 
 
+
+	
 # Define el comando de entrada predeterminado
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
- 
+
 # Define el comando predeterminado si no se proporciona ninguno al iniciar el contenedor
-CMD ["/bin/bash"] 
+# Este hace que el contenedor permanezca vivo indefinidamente, lo que permite la ejecución de comandos dentro del contenedor.
+CMD ["sleep", "infinity"]
+
+
 
 
 
