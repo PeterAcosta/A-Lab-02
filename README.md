@@ -117,7 +117,7 @@ Alpine se accede con `sh`; las demás imágenes están configuradas con
 imagen.
 
 
-También se pueden consultar recursos con `make show_me_all`. 
+También se pueden consultar recursos con `make show_me_all`.
 `make delete_all` elimina de forma forzada los contenedores e imágenes con los 
 nombres definidos por el proyecto; úsalo únicamente si se desea esa limpieza.
 
