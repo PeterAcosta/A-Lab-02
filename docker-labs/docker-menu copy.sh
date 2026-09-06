@@ -50,6 +50,7 @@ launch_container() {
 			echo -e "${CYAN}    (run: cat /etc/os-release )${NC}"
 			echo -e "${CYAN}    (run: ./usr/local/bin/os-data.sh )${NC}\n"
             if [ "$service_name" == "os-1a-alpine" ]; then
+                # docker exec -it $container_name /bin/sh || docker exec -it $container_name /bin/bash
 				docker exec -it $container_name /bin/bash
             else
                 docker exec -it $container_name /bin/bash
@@ -65,64 +66,60 @@ launch_container() {
 
 while true; do
     show_header
-    echo -e " ${YELLOW} 1)${NC} Contenedor con Alpine 3.17           	(os-1a-alpine)"
-    echo -e " ${YELLOW} 2)${NC} Contenedor con Debian 10 Buster      	(os-2a-debian-10-buster)"
-    echo -e " ${YELLOW} 3)${NC} Contenedor con Debian 11 Bullseye    	(os-2b-debian-11-bullseye)"
-    echo -e " ${YELLOW} 4)${NC} Contenedor con Debian 12 Bookworm    	(os-2c-debian-12-bookworm)"
-    echo -e " ${YELLOW} 5)${NC} Contenedor con Debian 13 Trixie      	(os-2d-debian-13-trixie)"
-    echo -e " ${YELLOW} 6)${NC} Contenedor con Ubuntu 23.04 Lunar Lobster	(os-3a-ubuntu-23-04)"
-    echo -e " ${YELLOW} 7)${NC} Contenedor con CentOS 7.9            	(os-4a-centos-7-9-2009)"
-    echo -e " ${YELLOW} 8)${NC} Contenedor con RedHat UBI 8.7        	(os-5a-redhat-ubi8)"
-    echo -e " ${YELLOW} 9)${NC} Contenedor con Fedora 39             	(os-6a-fedora-39)"
-    echo -e " ${YELLOW}10)${NC} Contenedor con Fedora 44            	(os-6b-fedora-44)"
-    echo -e " ${YELLOW}11)${NC} Contenedor con Amazon Linux 2023    	(os-7a-amazon-linux-2023)"
+    echo -e " ${YELLOW}1)${NC} Contenedor con Alpine 3.17           	(os-1a-alpine)"
+    echo -e " ${YELLOW}2)${NC} Contenedor con Debian 10 Buster      	(os-2a-debian-10-buster)"
+    echo -e " ${YELLOW}3)${NC} Contenedor con Debian 11 Bullseye    	(os-2b-debian-11-bullseye)"
+    echo -e " ${YELLOW}4)${NC} Contenedor con Ubuntu 23.04 Lunar Lobster	(os-3a-ubuntu-23-04)"
+    echo -e " ${YELLOW}5)${NC} Contenedor con CentOS 7.9            	(os-4a-centos-7-9-2009)"
+    echo -e " ${YELLOW}6)${NC} Contenedor con RedHat UBI 8.7        	(os-5a-redhat-ubi8)"
+    echo -e " ${YELLOW}7)${NC} Contenedor con Fedora 39             	(os-6a-fedora-39)"
+	echo -e " ${YELLOW}8)${NC} Contenedor con Fedora 44             	(os-6b-fedora-44)"
+    echo -e " ${YELLOW}9)${NC} Contenedor con Amazon Linux 2023     	(os-7a-amazon-linux-2023)"
     echo -e "${CYAN}--------------------------------------------------------------------${NC}"
     echo -e " ${GREEN}a)${NC} Levantar TODOS los contenedores juntos"
     echo -e " ${GREEN}b)${NC} Estado de los contenedores (docker compose ps)"
     echo -e " ${RED}c)${NC} Detener y eliminar TODOS los contenedores 	${RED}(cuidado)${NC}"
-    echo -e " ${RED}d)${NC} Eliminar TODAS las imagenes 		${RED}(cuidado)${NC}"
+	echo -e " ${RED}d)${NC} Eliminar TODAS las imagenes 		${RED}(cuidado)${NC}"
     echo -e " ${GREEN}0)${NC} Salir del programa"
     echo -e "${CYAN}====================================================================${NC}"
     
-    read -p "Seleccione una opción [0-11 / a-d]: " opcion
+    read -p "Seleccione una opción [0-8 / a-b-c]: " opcion
 
     case $opcion in
         1) launch_container "os-1a-alpine" "1a-alpine-3.17" "Alpine Linux 3.17" ;;
         2) launch_container "os-2a-debian-10-buster" "2a-debian-10-buster" "Debian 10 Buster" ;;
         3) launch_container "os-2b-debian-11-bullseye" "2b-debian-11-bullseye" "Debian 11 Bullseye" ;;
-        4) launch_container "os-2c-debian-12-bookworm" "2c-debian-12-bookworm" "Debian 12 Bookworm" ;;
-        5) launch_container "os-2d-debian-13-trixie" "2d-debian-13-trixie" "Debian 13 Trixie" ;;
-        6) launch_container "os-3a-ubuntu-23-04" "3a-ubuntu-23.04" "Ubuntu 23.04 (Lunar Lobster)" ;;
-        7) launch_container "os-4a-centos-7-9-2009" "4a-centos-7.9.2009" "CentOS 7.9" ;;
-        8) launch_container "os-5a-redhat-ubi8" "5a-redhat-ubi8" "RedHat UBI 8.7" ;;
-        9) launch_container "os-6a-fedora-39" "6a-fedora-39" "Fedora 39" ;;
-        10) launch_container "os-6b-fedora-44" "6b-fedora-44" "Fedora 44" ;;
-        11) launch_container "os-7a-amazon-linux-2023" "7a-amazon-linux-2023" "Amazon Linux 2023" ;;
+        4) launch_container "os-3a-ubuntu-23-04" "3a-ubuntu-23.04" "Ubuntu 23.04 (Lunar Lobster)" ;;
+        5) launch_container "os-4a-centos-7-9-2009" "4a-centos-7.9.2009" "CentOS 7.9" ;;
+        6) launch_container "os-5a-redhat-ubi8" "5a-redhat-ubi8" "RedHat UBI 8.7" ;;
+        7) launch_container "os-6a-fedora-39" "6a-fedora-39" "Fedora 39" ;;
+        8) launch_container "os-6b-fedora-44" "6b-fedora-44" "Fedora 44" ;;
+        9) launch_container "os-7a-amazon-linux-2023" "7a-amazon-linux-2023" "Amazon Linux 2023" ;;
         a)
             echo -e "\n${GREEN}[+] Compilando y levantando TODOS los servicios...${NC}"
             docker compose up -d --build
             echo -e "\n\nPresione Enter para continuar..."
-            read -r
+			read -r
             ;;
         b)
             echo -e "\n${GREEN}[i] Estado actual del entorno:${NC}\n"
             docker compose ps
             echo -e "\n\nPresione Enter para continuar..."
-            read -r
+			read -r
             ;;
 			
         c)
             echo -e "\n${RED}[-] Deteniendo y eliminando contenedores...${NC}"
             docker compose down
             echo -e "\n\nPresione Enter para continuar..."
-            read -r
+			read -r
             ;;
 
         d)
             echo -e "\n${RED}[-] Eliminando todas las imágenes...${NC}"
             docker rmi $(docker images -q)	
             echo -e "\n\nPresione Enter para continuar..."
-            read -r
+			read -r
             ;;
 
         0)

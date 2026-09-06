@@ -35,6 +35,19 @@ services:
     networks:
       - os-nx-linux-network
 
+  os-2c-debian-12-bookworm:
+    container_name: 2c-debian-12-bookworm
+    image: image-2c-debian-12-bookworm:2c
+    build:
+      context: .  
+      dockerfile: Dockerfile.2c-debian-12-bookworm
+    networks:
+      - os-nx-linux-network
+
+
+
+
+
   os-3a-ubuntu-23-04:
     container_name: 3a-ubuntu-23.04
     image: image-3a-ubuntu-23.04:3a
