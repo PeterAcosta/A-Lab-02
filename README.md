@@ -25,8 +25,8 @@ Centraliza ejemplos prácticos para:
   `free`, `id`, `column`).
 - **Docker Engine**, **Docker Compose** y **Dockerfiles**.
 - **Make** para comandos operativos del laboratorio Docker.
-- Gestores de paquetes de las imágenes: `apk`, `apt-get`, `yum` y `dnf`.
-- Herramientas instaladas en las imágenes: `neofetch`, `figlet` y `mc`.
+- Gestores de paquetes de las imágenes: `apk`, `apt`, `apt-get`, `yum` y `dnf`.
+- Herramientas instaladas en las imágenes: `neofetch`, `fastfetch`, `figlet` y `mc`.
 - **VS Code** mediante una configuración opcional de iconos y reglas de
   columnas.
 
