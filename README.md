@@ -22,8 +22,8 @@ Centraliza ejemplos prácticos para:
 - inspeccionar contenedores, imágenes, volúmenes, redes y estadísticas de Docker;
 - levantar varias distribuciones Linux en contenedores aislados pero conectados a
   una red común;
-- comparar gestores de paquetes y configuraciones de imágenes basadas en Alpine,
-  Debian, Ubuntu, CentOS, Red Hat UBI, Fedora y Amazon Linux.
+- comparar gestores de paquetes y configuraciones de imágenes basadas en **Alpine,
+  Debian, Ubuntu, CentOS, Red Hat, Fedora y Amazon Linux**.
 
 ## Tecnologías y herramientas
 
