@@ -48,7 +48,6 @@ launch_container() {
         if [[ "$ingresar" =~ ^[Ss]$ ]]; then
             echo -e "${NC}[*] Conectando a la shell de ${YELLOW}${container_name}...${NC}"
 			echo -e "${CYAN}    (run: cat /etc/os-release )${NC}"
-			echo -e "${CYAN}    (run: neofetch )${NC}"
 			echo -e "${CYAN}    (run: ./usr/local/bin/os-data.sh )${NC}\n"
             if [ "$service_name" == "os-1a-alpine" ]; then
                 # docker exec -it $container_name /bin/sh || docker exec -it $container_name /bin/bash
@@ -74,7 +73,8 @@ while true; do
     echo -e " ${YELLOW}5)${NC} Contenedor con CentOS 7.9            	(os-4a-centos-7-9-2009)"
     echo -e " ${YELLOW}6)${NC} Contenedor con RedHat UBI 8.7        	(os-5a-redhat-ubi8)"
     echo -e " ${YELLOW}7)${NC} Contenedor con Fedora 39             	(os-6a-fedora-39)"
-    echo -e " ${YELLOW}8)${NC} Contenedor con Amazon Linux 2023     	(os-7a-amazon-linux-2023)"
+	echo -e " ${YELLOW}8)${NC} Contenedor con Fedora 44             	(os-6b-fedora-44)"
+    echo -e " ${YELLOW}9)${NC} Contenedor con Amazon Linux 2023     	(os-7a-amazon-linux-2023)"
     echo -e "${CYAN}--------------------------------------------------------------------${NC}"
     echo -e " ${GREEN}a)${NC} Levantar TODOS los contenedores juntos"
     echo -e " ${GREEN}b)${NC} Estado de los contenedores (docker compose ps)"
@@ -93,7 +93,8 @@ while true; do
         5) launch_container "os-4a-centos-7-9-2009" "4a-centos-7.9.2009" "CentOS 7.9" ;;
         6) launch_container "os-5a-redhat-ubi8" "5a-redhat-ubi8" "RedHat UBI 8.7" ;;
         7) launch_container "os-6a-fedora-39" "6a-fedora-39" "Fedora 39" ;;
-        8) launch_container "os-7a-amazon-linux-2023" "7a-amazon-linux-2023" "Amazon Linux 2023" ;;
+        8) launch_container "os-6b-fedora-44" "6b-fedora-44" "Fedora 44" ;;
+        9) launch_container "os-7a-amazon-linux-2023" "7a-amazon-linux-2023" "Amazon Linux 2023" ;;
         a)
             echo -e "\n${GREEN}[+] Compilando y levantando TODOS los servicios...${NC}"
             docker compose up -d --build

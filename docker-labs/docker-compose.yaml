@@ -71,6 +71,18 @@ services:
     networks:
       - os-nx-linux-network
 
+  os-6b-fedora-44:
+    container_name: 6b-fedora-44
+    image: image-6b-fedora-44:6b
+    build:
+      context: .  
+      dockerfile: Dockerfile.6b-fedora-44
+    networks:
+      - os-nx-linux-network
+
+
+
+
   os-7a-amazon-linux-2023:
     container_name: 7a-amazon-linux-2023
     image: image-7a-amazon-linux-2023:7a
