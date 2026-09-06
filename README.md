@@ -160,41 +160,62 @@ El fragmento SSH puede incorporarse manualmente a la configuración global
 │
 ├── docker-labs/
 │   ├── Dockerfile.1a-alpine-3.17
-│	├── Dockerfile.2a-debian-10-buster
-│	├── Dockerfile.2b-debian-11-bullseye
-│	├── Dockerfile.2c-ubuntu-23.04
-│	├── Dockerfile.3a-centos-7.9.2009
-│	├── Dockerfile.4a-redhat-ubi8-8.7
-│	├── Dockerfile.4b-fedora-39
-│	├── Dockerfile.5c-amazon-linux-2023
-│	├── docker-compose.yaml
-│	├── entrypoint.01.sh
-│	├── entrypoint.02.sh
-│	├── entrypoint.03.sh
-│	└── Makefile
+│   ├── Dockerfile.2a-debian-10-buster
+│   ├── Dockerfile.2b-debian-11-bullseye
+│   ├── Dockerfile.2c-debian-12-bookworm
+│   ├── Dockerfile.2d-debian-13-trixie
+│   ├── Dockerfile.3a-ubuntu-23.04
+│   ├── Dockerfile.3b-ubuntu-24.04
+│   ├── Dockerfile.3c-ubuntu-26.04
+│   ├── Dockerfile.4a-centos-7.9.2009
+│   ├── Dockerfile.5a-redhat-ubi8
+│   ├── Dockerfile.6a-fedora-39
+│   ├── Dockerfile.6b-fedora-44
+│   ├── Dockerfile.7a-amazon-linux-2023
+│   ├── docker-compose.yaml
+│   ├── entrypoint.01.sh
+│   ├── entrypoint.02.sh
+│   ├── docker-menu.sh
+│   └── Makefile
+│
 └── .vscode/settings.json
 ```
+
 
 ## Dockerfiles por sistema operativo
 
 - `Dockerfile.1a-alpine-3.17`: imagen basada en **Alpine Linux 3.17**.
 - `Dockerfile.2a-debian-10-buster`: imagen basada en **Debian 10 Buster**.
 - `Dockerfile.2b-debian-11-bullseye`: imagen basada en **Debian 11 Bullseye**.
-- `Dockerfile.2c-ubuntu-23.04`: imagen basada en **Ubuntu 23.04 Lunar**.
-- `Dockerfile.3a-centos-7.9.2009`: imagen basada en **CentOS 7**.
-- `Dockerfile.4a-redhat-ubi8-8.7`: imagen basada en **Red Hat Universal Base
-  Image 8.7**.
-- `Dockerfile.4b-fedora-39`: imagen basada en **Fedora 39**.
-- `Dockerfile.5c-amazon-linux-2023`: imagen basada en **Amazon Linux 2023**.
+- `Dockerfile.2c-debian-12-bookworm`: imagen basada en **Debian 12 Bookworm**.
+- `Dockerfile.2d-debian-13-trixie`: imagen basada en **Debian 13 Trixie**.
+- `Dockerfile.3a-ubuntu-23.04`: imagen basada en **Ubuntu 23.04 Lunar Lobster**.
+- `Dockerfile.3b-ubuntu-24.04`: imagen basada en **Ubuntu 24.04 LTS Noble Numbat**.
+- `Dockerfile.3c-ubuntu-26.04`: imagen basada en **Ubuntu 26.04 LTS Resolute Raccoon**.
+- `Dockerfile.4a-centos-7.9.2009`: imagen basada en **CentOS 7.9**.
+- `Dockerfile.5a-redhat-ubi8`: imagen basada en **Red Hat Universal Base Image 8.7**.
+- `Dockerfile.6a-fedora-39`: imagen basada en **Fedora 39**.
+- `Dockerfile.6b-fedora-44`: imagen basada en **Fedora 44**.
+- `Dockerfile.7a-amazon-linux-2023`: imagen basada en **Amazon Linux 2023**.
 
 ## Archivos de soporte
 
-- `docker-compose.yaml`: define los ocho servicios, sus imágenes, sus
+- `docker-compose.yaml`: define los servicios, sus imágenes, sus
   Dockerfiles y la red compartida `os-linux-hub`.
 - `entrypoint.01.sh`: entrypoint utilizado por Alpine, Debian y Ubuntu.
 - `entrypoint.02.sh`: entrypoint utilizado por CentOS, Red Hat UBI y Fedora.
-- `entrypoint.03.sh`: entrypoint utilizado por Amazon Linux.
+- `docker-menu.sh`: ejecuta un script interactivo ( ver imagen )
 - `Makefile`: proporciona comandos para consultar y eliminar recursos Docker.
+
+
+## Script "docker-menu.sh"
+Al ejecutar el script Bash `./docker-menu.sh`, accederás a un menú interactivo
+que te permitirá crear contenedores Docker utilizando diferentes sistemas operativos ( Linux).
+
+<p align="center">
+  <img src="docker-labs/docker-menu.jpg" alt="Docker Menu" width="700">
+</p>
+
 
 
 ## Decisiones técnicas relevantes
