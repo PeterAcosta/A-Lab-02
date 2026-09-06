@@ -9,15 +9,17 @@ RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
+BLUE_LIGHT='\033[1;34m'
+BLUE_INTENSE='\033[0;94m'
 CYAN='\033[0;36m'
 NC='\033[0m' # Sin color
 
 show_header() {
     clear
     echo -e "${CYAN}=================================================================================${NC}"
-    echo -e "${YELLOW}               Container runner / manager script - MULTI OS LAB               ${NC}"
+    echo -e "${YELLOW}             Docker Container runner / manager script - MULTI OS LAB          ${NC}"
     echo -e "${CYAN}================================================================================="
-    echo -e "		             Peter's trials and tests "
+    echo -e "                           Peter's dev & test sandbox "
     echo -e "${CYAN}---------------------------------------------------------------------------------${NC}"
 }
 
@@ -84,10 +86,10 @@ while true; do
     echo -e " ${RED}c)${NC} Detener y eliminar TODOS los contenedores 		${RED}(cuidado)${NC}"
     echo -e " ${RED}d)${NC} Eliminar TODAS las imagenes 			${RED}(cuidado)${NC}"
 	echo -e " ${GREEN}e)${NC} Limpiar sistema 					(docker system prune -a)"
-    echo -e " ${GREEN}0)${NC} Salir del programa"
+    echo -e " ${BLUE_INTENSE}x)${NC} Salir del script 					${BLUE_INTENSE}(exit)${NC}"
     echo -e "${CYAN}=================================================================================${NC}"
     
-    read -p "Seleccione una opción [0-13 / a-e]: " opcion
+    read -p "Seleccione una opción [1-13 / a-e / x]: " opcion
 
     case $opcion in
         1) launch_container "os-1a-alpine" "1a-alpine-3.17" "Alpine Linux 3.17" ;;
@@ -139,7 +141,7 @@ while true; do
 
 
 
-        0)
+        x)
             echo -e "\n${YELLOW}¡Hasta luego!${NC}\n"
             exit 0
             ;;
