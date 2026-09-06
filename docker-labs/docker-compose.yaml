@@ -35,48 +35,48 @@ services:
     networks:
       - os-nx-linux-network
 
-  os-2c-ubuntu-23-04:
-    container_name: 2c-ubuntu-23.04
-    image: image-2c-ubuntu-23.04:2c
+  os-3a-ubuntu-23-04:
+    container_name: 3a-ubuntu-23.04
+    image: image-3a-ubuntu-23.04:3a
     build:
       context: .  
-      dockerfile: Dockerfile.2c-ubuntu-23.04
+      dockerfile: Dockerfile.3a-ubuntu-23.04
     networks:
       - os-nx-linux-network
 
-  os-3a-centos-7-9-2009:
-    container_name: 3a-centos-7.9.2009
-    image: image-3a-centos-7.9.2009:3a
+  os-4a-centos-7-9-2009:
+    container_name: 4a-centos-7.9.2009
+    image: image-4a-centos-7.9.2009:4a
     build:
       context: .  
-      dockerfile: Dockerfile.3a-centos-7.9.2009
+      dockerfile: Dockerfile.4a-centos-7.9.2009
     networks:
       - os-nx-linux-network
 
-  os-4a-redhat-ubi8:
-    container_name: 4a-redhat-ubi8
-    image: image-4a-redhat-ubi8:4a
+  os-5a-redhat-ubi8:
+    container_name: 5a-redhat-ubi8
+    image: image-5a-redhat-ubi8:5a
     build:
       context: .  
-      dockerfile: Dockerfile.4a-redhat-ubi8-8.7
+      dockerfile: Dockerfile.5a-redhat-ubi8-8.7
     networks:
       - os-nx-linux-network
 
-  os-4b-fedora-39:
-    container_name: 4b-fedora-39
-    image: image-4b-fedora-39:4b
+  os-6a-fedora-39:
+    container_name: 6a-fedora-39
+    image: image-6a-fedora-39:6a
     build:
       context: .  
-      dockerfile: Dockerfile.4b-fedora-39
+      dockerfile: Dockerfile.6a-fedora-39
     networks:
       - os-nx-linux-network
 
-  os-5c-amazon-linux-2023:
-    container_name: 5c-amazon-linux-2023
-    image: image-5c-amazon-linux-2023:5c
+  os-7a-amazon-linux-2023:
+    container_name: 7a-amazon-linux-2023
+    image: image-7a-amazon-linux-2023:7a
     build:
       context: .  
-      dockerfile: Dockerfile.5c-amazon-linux-2023
+      dockerfile: Dockerfile.7a-amazon-linux-2023
     networks:
       - os-nx-linux-network
 

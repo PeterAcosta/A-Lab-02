@@ -70,11 +70,11 @@ while true; do
     echo -e " ${YELLOW}1)${NC} Contenedor con Alpine 3.17           	(os-1a-alpine)"
     echo -e " ${YELLOW}2)${NC} Contenedor con Debian 10 Buster      	(os-2a-debian-10-buster)"
     echo -e " ${YELLOW}3)${NC} Contenedor con Debian 11 Bullseye    	(os-2b-debian-11-bullseye)"
-    echo -e " ${YELLOW}4)${NC} Contenedor con Ubuntu 23.04 Lunar Lobster	(os-2c-ubuntu-23-04)"
-    echo -e " ${YELLOW}5)${NC} Contenedor con CentOS 7.9            	(os-3a-centos-7-9-2009)"
-    echo -e " ${YELLOW}6)${NC} Contenedor con RedHat UBI 8.7        	(os-4a-redhat-ubi8)"
-    echo -e " ${YELLOW}7)${NC} Contenedor con Fedora 39             	(os-4b-fedora-39)"
-    echo -e " ${YELLOW}8)${NC} Contenedor con Amazon Linux 2023     	(os-5c-amazon-linux-2023)"
+    echo -e " ${YELLOW}4)${NC} Contenedor con Ubuntu 23.04 Lunar Lobster	(os-3a-ubuntu-23-04)"
+    echo -e " ${YELLOW}5)${NC} Contenedor con CentOS 7.9            	(os-4a-centos-7-9-2009)"
+    echo -e " ${YELLOW}6)${NC} Contenedor con RedHat UBI 8.7        	(os-5a-redhat-ubi8)"
+    echo -e " ${YELLOW}7)${NC} Contenedor con Fedora 39             	(os-6a-fedora-39)"
+    echo -e " ${YELLOW}8)${NC} Contenedor con Amazon Linux 2023     	(os-7a-amazon-linux-2023)"
     echo -e "${CYAN}--------------------------------------------------------------------${NC}"
     echo -e " ${GREEN}a)${NC} Levantar TODOS los contenedores juntos"
     echo -e " ${GREEN}b)${NC} Estado de los contenedores (docker compose ps)"
@@ -89,11 +89,11 @@ while true; do
         1) launch_container "os-1a-alpine" "1a-alpine-3.17" "Alpine Linux 3.17" ;;
         2) launch_container "os-2a-debian-10-buster" "2a-debian-10-buster" "Debian 10 Buster" ;;
         3) launch_container "os-2b-debian-11-bullseye" "2b-debian-11-bullseye" "Debian 11 Bullseye" ;;
-        4) launch_container "os-2c-ubuntu-23-04" "2c-ubuntu-23.04" "Ubuntu 23.04" ;;
-        5) launch_container "os-3a-centos-7-9-2009" "3a-centos-7.9.2009" "CentOS 7.9" ;;
-        6) launch_container "os-4a-redhat-ubi8" "4a-redhat-ubi8" "RedHat UBI 8.7" ;;
-        7) launch_container "os-4b-fedora-39" "4b-fedora-39" "Fedora 39" ;;
-        8) launch_container "os-5c-amazon-linux-2023" "5c-amazon-linux-2023" "Amazon Linux 2023" ;;
+        4) launch_container "os-3a-ubuntu-23-04" "3a-ubuntu-23.04" "Ubuntu 23.04 (Lunar Lobster)" ;;
+        5) launch_container "os-4a-centos-7-9-2009" "4a-centos-7.9.2009" "CentOS 7.9" ;;
+        6) launch_container "os-5a-redhat-ubi8" "5a-redhat-ubi8" "RedHat UBI 8.7" ;;
+        7) launch_container "os-6a-fedora-39" "6a-fedora-39" "Fedora 39" ;;
+        8) launch_container "os-7a-amazon-linux-2023" "7a-amazon-linux-2023" "Amazon Linux 2023" ;;
         a)
             echo -e "\n${GREEN}[+] Compilando y levantando TODOS los servicios...${NC}"
             docker compose up -d --build
