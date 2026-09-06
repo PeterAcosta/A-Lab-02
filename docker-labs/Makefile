@@ -39,3 +39,24 @@ delete_all: ##  Borra las imagenes y los contenedore
 	@echo "Borro imagenes:"
 	docker rmi -f image-1a-alpine-3.17:1a image-2a-debian-10-buster:2a image-2b-debian-11-bullseye:2b image-2c-ubuntu-23.04:2c image-3a-centos-7.9.2009:3a image-4a-redhat-ubi8:4a image-4b-fedora-39:4b image-5c-amazon-linux-2023:5c
 	@echo ""
+
+delete: ## Borra contenedores e imágenes previa confirmación
+	@clear
+	@echo "------------------------------------------------------------------------------------------------------------------------------"
+	@echo "Borro contenedores e imagenes:"
+	@echo "⚠️  ¿Está seguro que queres \n    detener los contenedores \n    borrar los contenedores  \n    borrar las imágenes? : \n"
+	@read -p "    [s/N]: " confirm; \
+	if [ "$$confirm" = "s" ] || [ "$$confirm" = "S" ]; then \
+		echo "------------------------------------------------------------------------------------------------------------------------------"; \
+		echo "Deteniendo contenedores..."; \
+		docker stop $$(docker ps -q) 2>&1 || true; \
+		echo "------------------------------------------------------------------------------------------------------------------------------"; \
+		echo "Borrando contenedores..."; \
+		docker rm -f $$(docker ps -a -q) 2>&1 || true; \
+		echo "------------------------------------------------------------------------------------------------------------------------------"; \
+		echo "Borrando imágenes..."; \
+		docker rmi -f $$(docker images -q) 2>&1 || true; \
+		echo ""; \
+	else \
+		echo "Operación cancelada."; \
+	fi

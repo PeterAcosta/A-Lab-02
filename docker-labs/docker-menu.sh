@@ -79,10 +79,10 @@ while true; do
     echo -e " ${YELLOW}12)${NC} Contenedor con Fedora 44            		(os-6b-fedora-44)"
     echo -e " ${YELLOW}13)${NC} Contenedor con Amazon Linux 2023    		(os-7a-amazon-linux-2023)"
     echo -e "${CYAN}---------------------------------------------------------------------------------${NC}"
-    echo -e " ${GREEN}a)${NC} Levantar TODOS los contenedores juntos"
+    echo -e " ${GREEN}a)${NC} Levantar TODOS los contenedores juntos 		${RED}(ojo!)${NC}"
     echo -e " ${GREEN}b)${NC} Estado de los contenedores (docker compose ps)"
-    echo -e " ${RED}c)${NC} Detener y eliminar TODOS los contenedores 	${RED}(cuidado)${NC}"
-    echo -e " ${RED}d)${NC} Eliminar TODAS las imagenes 		${RED}(cuidado)${NC}"
+    echo -e " ${RED}c)${NC} Detener y eliminar TODOS los contenedores 		${RED}(cuidado)${NC}"
+    echo -e " ${RED}d)${NC} Eliminar TODAS las imagenes 			${RED}(cuidado)${NC}"
     echo -e " ${GREEN}0)${NC} Salir del programa"
     echo -e "${CYAN}=================================================================================${NC}"
     
