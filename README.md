@@ -1,4 +1,4 @@
-<img src="images/lab.png" alt="Logo del Proyecto" width="80" height="80" />
+<img src="images/lab.png" alt="Contenedores con distros Linux" width="80" height="80" />
 
 # A-Lab-02 :
 
