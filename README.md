@@ -1,3 +1,7 @@
+
+<!-- LOGO DEL PROYECTO -->
+<img src="images/lab.png" alt="Logo del Proyecto" width="120" height="120" />
+
 # A-Lab-02 :
 
 Colección de laboratorios y utilidades para practicar administración de sistemas
