@@ -16,6 +16,7 @@ echo -e "${NC}"
 figlet "${THIS_IMAGE}"
 echo -e ""
 fastfetch
+echo -e ""
 EOF
 
 # Asignamos permisos de ejecución al archivo generado

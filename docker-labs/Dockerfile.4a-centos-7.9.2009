@@ -5,7 +5,7 @@ ARG IMAGE_NAME
 ENV THIS_IMAGE=${IMAGE_NAME}
 
 # Copia el archivo entrypoint.sh a la imagen
-COPY entrypoint.00.sh /usr/local/bin/entrypoint.sh
+COPY entrypoint.01.sh /usr/local/bin/entrypoint.sh
 
 # 1. Apuntar los repositorios base de CentOS 7 a vault.centos.org
 # 2. Instalar epel-release y actualizar repositorios

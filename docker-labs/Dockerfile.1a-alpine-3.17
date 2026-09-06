@@ -6,7 +6,7 @@ ARG IMAGE_NAME
 ENV THIS_IMAGE=${IMAGE_NAME}
 
 # Copia el archivo entrypoint.sh a la imagen
-COPY entrypoint.00.sh /usr/local/bin/entrypoint.sh
+COPY entrypoint.01.sh /usr/local/bin/entrypoint.sh
 # COPY entrypoint.01.sh /tmp/entrypoint.sh
 
 RUN apk update && apk upgrade --available && sync && \

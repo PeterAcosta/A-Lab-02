@@ -5,7 +5,7 @@ ARG IMAGE_NAME
 ENV THIS_IMAGE=${IMAGE_NAME}
 
 # Copiar script de entrypoint
-COPY entrypoint.00.sh /usr/local/bin/entrypoint.sh
+COPY entrypoint.01.sh /usr/local/bin/entrypoint.sh
 
 # Actualizar, habilitar el repositorio universe e instalar paquetes
 RUN apt-get update && \

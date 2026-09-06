@@ -4,7 +4,7 @@ ARG IMAGE_NAME
 
 ENV THIS_IMAGE=${IMAGE_NAME}
 
-COPY entrypoint.00.sh /usr/local/bin/entrypoint.sh
+COPY entrypoint.01.sh /usr/local/bin/entrypoint.sh
 
 # Cambiar los repositorios a old-releases para imágenes EOL
 RUN sed -i -e 's/archive.ubuntu.com/old-releases.ubuntu.com/g' \
