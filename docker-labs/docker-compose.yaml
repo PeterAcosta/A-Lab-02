@@ -65,6 +65,21 @@ services:
     networks:
       - os-nx-linux-network
 
+  os-3b-ubuntu-24-04:
+    container_name: 3b-ubuntu-24.04
+    image: image-3b-ubuntu-24.04:3b
+    build:
+      context: .  
+      dockerfile: Dockerfile.3b-ubuntu-24.04
+    networks:
+      - os-nx-linux-network
+
+
+
+
+
+
+
   os-4a-centos-7-9-2009:
     container_name: 4a-centos-7.9.2009
     image: image-4a-centos-7.9.2009:4a
