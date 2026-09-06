@@ -67,7 +67,7 @@ contenedores se identifican con nombres y etiquetas definidos en Compose.
   `ServerAliveInterval 60`; (no es un script ejecutable).
 - `clean-disk.sh`: limpieza de disco para Ubuntu (adaptado para tu servidor AWS)
 
-clean-disk.sh
+
 
 ## Entornos Docker:
 
@@ -76,17 +76,22 @@ Compose define estos servicios:
 | Servicio | Imagen base |
 | --- | --- |
 | `os-1a-alpine` | Alpine 3.17 |
-| `os-2a-debian-10-buster` | Debian Buster slim |
-| `os-2b-debian-11-bullseye` | Debian Bullseye |
-| `os-2c-ubuntu-23-04` | Ubuntu Lunar 23.04 |
-| `os-3a-centos-7-9-2009` | CentOS 7 |
-| `os-4a-redhat-ubi8` | Red Hat UBI 8.7 |
-| `os-4b-fedora-39` | Fedora 39 |
-| `os-5c-amazon-linux-2023` | Amazon Linux 2023 |
+| `os-2a-debian-10-buster` | Debian 10 Buster |
+| `os-2b-debian-11-bullseye` | Debian 11 Bullseye |
+| `os-2c-debian-12-bookworm` | Debian 12 Bookworm |
+| `os-2d-debian-13-trixie` | Debian 13 Trixie |
+| `os-3a-ubuntu-23-04` | Ubuntu 23.04 Lunar Lobster |
+| `os-3b-ubuntu-24-04` | Ubuntu 24.04 LTS Noble Numbat |
+| `os-3c-ubuntu-26-04` | Ubuntu 26.04 LTS Resolute Raccoon |
+| `os-4a-centos-7-9-2009` | CentOS 7.9 |
+| `os-5a-redhat-ubi8` | RedHat UBI 8.7 |
+| `os-6a-fedora-39` | Fedora 39 |
+| `os-6b-fedora-44` | Fedora 44 |
+| `os-7a-amazon-linux-2023` | Amazon Linux 2023 |
 
-Los entrypoints muestran información de la distribución (`neofetch` y, según la
-imagen, `figlet`) y mantienen el proceso en ejecución para permitir acceso
-interactivo.
+Los entrypoints muestran información de la distribución
+(`neofetch` , `fastfetch` y `figlet` segun la imagen) y mantienen el proceso 
+en ejecución para permitir acceso interactivo.
 
 ## Requisitos
 
