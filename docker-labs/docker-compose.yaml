@@ -74,6 +74,14 @@ services:
     networks:
       - os-nx-linux-network
 
+  os-3c-ubuntu-26-04:
+    container_name: 3c-ubuntu-26.04
+    image: image-3c-ubuntu-26.04:3c
+    build:
+      context: .  
+      dockerfile: Dockerfile.3c-ubuntu-26.04
+    networks:
+      - os-nx-linux-network
 
 
 
