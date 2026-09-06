@@ -250,8 +250,6 @@ que te permitirá crear contenedores Docker utilizando diferentes sistemas opera
 
 
 ## Autor :
-
 **Pedro Javier Acosta**
-
 - GitHub: 	[github.com/peteracosta](https://github.com/peteracosta)
 - LinkedIn: [linkedin.com/in/acosta-peter](https://linkedin.com/in/acosta-peter)
