@@ -80,13 +80,14 @@ while true; do
     echo -e " ${YELLOW}13)${NC} Contenedor con Amazon Linux 2023    		(os-7a-amazon-linux-2023)"
     echo -e "${CYAN}---------------------------------------------------------------------------------${NC}"
     echo -e " ${GREEN}a)${NC} Levantar TODOS los contenedores juntos 		${RED}(ojo!)${NC}"
-    echo -e " ${GREEN}b)${NC} Estado de los contenedores (docker compose ps)"
+    echo -e " ${GREEN}b)${NC} Estado de los contenedores 				(docker compose ps)"
     echo -e " ${RED}c)${NC} Detener y eliminar TODOS los contenedores 		${RED}(cuidado)${NC}"
     echo -e " ${RED}d)${NC} Eliminar TODAS las imagenes 			${RED}(cuidado)${NC}"
+	echo -e " ${GREEN}e)${NC} Limpiar sistema 					(docker system prune -a)"
     echo -e " ${GREEN}0)${NC} Salir del programa"
     echo -e "${CYAN}=================================================================================${NC}"
     
-    read -p "Seleccione una opción [0-13 / a-d]: " opcion
+    read -p "Seleccione una opción [0-13 / a-e]: " opcion
 
     case $opcion in
         1) launch_container "os-1a-alpine" "1a-alpine-3.17" "Alpine Linux 3.17" ;;
@@ -128,6 +129,15 @@ while true; do
             echo -e "\n\nPresione Enter para continuar..."
             read -r
             ;;
+
+        e)
+            echo -e "\n${GREEN}[i] Limpiando sistema ...${NC}\n"
+            docker system prune -a
+            echo -e "\n\nPresione Enter para continuar..."
+            read -r
+            ;;
+
+
 
         0)
             echo -e "\n${YELLOW}¡Hasta luego!${NC}\n"
