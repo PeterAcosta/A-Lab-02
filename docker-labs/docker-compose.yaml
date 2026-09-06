@@ -44,6 +44,14 @@ services:
     networks:
       - os-nx-linux-network
 
+  os-2d-debian-13-trixie:
+    container_name: 2d-debian-13-trixie
+    image: image-2d-debian-13-trixie:2d
+    build:
+      context: .  
+      dockerfile: Dockerfile.2d-debian-13-trixie
+    networks:
+      - os-nx-linux-network
 
 
 
