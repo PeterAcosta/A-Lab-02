@@ -4,6 +4,13 @@
 
 # A-Lab-02 :
 
+<!-- LOGO Y TÍTULO EN LÍNEA -->
+<img src="images/lab.png" alt="Logo del Proyecto" width="80" height="80" align="left" style="margin-right: 10px;" />
+
+# <font size="16">A-Lab-02</font>
+
+<br clear="left" />
+
 Colección de laboratorios y utilidades para practicar administración de sistemas
 Linux, scripting con Bash y creación de entornos Docker reproducibles. El
 repositorio no es una aplicación única: reúne experimentos independientes para
