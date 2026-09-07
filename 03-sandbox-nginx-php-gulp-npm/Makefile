@@ -83,6 +83,6 @@ gulp: ##			Ejecuta gulp dentro de su contenedor
 	docker exec -ti 09-gulp gulp
 
 
-fix-permissions:
+permissions-fix: ##	Arregla los permisos de los directorios y archivos del proyecto
 	sudo chown -R $$(id -u):$$(id -g) .
 	chmod -R u+rw .
