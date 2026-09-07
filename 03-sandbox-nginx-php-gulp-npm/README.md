@@ -133,9 +133,9 @@ docker compose down
 
 ```text
 .
-├── docker-compose.yaml          # Servicios, red, puertos y volúmenes
-├── Dockerfile.01-nginx          # Imagen del servidor web
-├── Dockerfile.02-php            # Imagen de PHP-FPM
+├── docker-compose.yaml           # Servicios, red, puertos y volúmenes
+├── Dockerfile.01-nginx           # Imagen del servidor web
+├── Dockerfile.02-php             # Imagen de PHP-FPM
 ├── Dockerfile.09-gulp            # Imagen de Node.js y Gulp
 ├── gulp/gulpfile.js              # Tareas de transformación
 ├── sources/                      # Código fuente editable
