@@ -147,7 +147,7 @@ docker exec -it 09-node-grunt bash
 ## Notas sobre bash dentro de Alpine Linux 
 El contenedor **09-node-grunt** está construido a partir de la imagen `node:alpine3.18`, basada en **Alpine Linux 3.18**. Aunque Alpine utiliza habitualmente **sh** como shell, este contenedor también tiene **Bash** instalado. Por motivos de estudio y experimentación.
 
-## Nota sobre la red
+## Nota sobre la red Docker
  Los tres contenedores (`01-nginx`, `02-php` y `09-node-grunt`) están conectados a la misma red Docker, `00-net-devel-01`. Esto permite que los contenedores se comuniquen entre sí dentro de la red privada `100.0.0.0/16`.
 
 
