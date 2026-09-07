@@ -13,12 +13,13 @@ module.exports = function (grunt) {
 	var JS_OUTPUT_FILE = 'www/_test.min.js';
 	var JS_OUTPUT_FILE_MAP = 'www/_test.min.js.map';
 
-	// var JS_SOURCE = 'sources/JS/*.js'
-	// var JS_FILE = 'www/_test.min.js';
-	// var JS_MAP_FILE = 'www/_test.min.js.map';
 
 
-	var PHP_CLASSES_SOURCE = 'sources/PHP-classes/*.php'
+	var PHP_FILES = '*.php'
+	var PHP_CLASSES_SOURCE = 'sources/PHP-classes/'
+	var PHP_CLASSES_OUTPUT = 'www/_classes/'
+
+
 	var PHP_SCRIPTS_SOURCE = 'sources/PHP-scripts/*.php'
 	var PHP_FUNCTIONS_SOURCE = 'sources/PHP-functions/*.php'
 	var PHP_FUNCTIONS_FILE = 'www/_functions.php';
@@ -69,6 +70,7 @@ module.exports = function (grunt) {
 		},
 
 
+
 		// -------------------------------------------------------------------------------------------------------------
 		uglify: {
 			options: {
@@ -77,16 +79,18 @@ module.exports = function (grunt) {
 				compress: false,
 				sourceMap: true,
 				// sourceMapName: 'www/_ceconet3.min.js.map'
-				sourceMapName: JS_OUTPUT_FILE_MAP 
+				sourceMapName: JS_OUTPUT_FILE_MAP
 
 			},
 			build: {
 				// src: 'sources/JS/*.js',
 				src: JS_SOURCE_DIR + JS_FILES,
 				// dest: 'www/_ceconet3.min.js'
-				dest: JS_OUTPUT_FILE 
+				dest: JS_OUTPUT_FILE
 			}
 		},
+
+
 
 		// -------------------------------------------------------------------------------------------------------------
 		phpmin: {
@@ -110,7 +114,7 @@ module.exports = function (grunt) {
 				// PHP-classes
 				files: [{
 					expand: true,
-					cwd: 'sources/PHP-classes/',
+					cwd: PHP_CLASSES_SOURCE,
 					src: '*.php',
 					dest: '<%= auxiliar.path %>/PHP-classes/'
 				}]
@@ -177,7 +181,7 @@ module.exports = function (grunt) {
 					expand: true,
 					cwd: '<%= auxiliar.path %>/PHP-classes/',
 					src: '*.php',
-					dest: 'www/_classes/'
+					dest: PHP_CLASSES_OUTPUT
 				}]
 			},
 
@@ -212,12 +216,12 @@ module.exports = function (grunt) {
 				livereload: true
 			},
 			css: {
-				// files: ['sources/CSS/*.css'],
+				//// files: ['sources/CSS/*.css'],
 				files: ['<%= cssmin.build.src %>'],
 				tasks: ['cssmin']
 			},
 			js: {
-				// files: ['__source/JS/*.js'],
+				//// files: ['__source/JS/*.js'],
 				files: ['<%= uglify.build.src %>'],
 				tasks: ['uglify']
 			},
@@ -232,7 +236,7 @@ module.exports = function (grunt) {
 			},
 			// classes
 			phpmin_php_classes: {
-				files: [PHP_CLASSES_SOURCE],
+				files: [PHP_CLASSES_SOURCE + PHP_FILES],
 				tasks: ['phpmin:php_classes']
 			},
 			concat_php_classes: {

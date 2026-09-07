@@ -13,3 +13,4 @@ class Calculator
 // Ejemplo de uso:
 // $calculator = new Calculator();
 // echo $calculator->sum(8, 12); // Devuelve: 20
+$a=3;
