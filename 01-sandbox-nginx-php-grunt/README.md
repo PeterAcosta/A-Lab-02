@@ -126,13 +126,13 @@ La tarea `grunt build` genera los archivos una vez. La tarea predeterminada
 ├── sources/                    # Código fuente editable
 ├── www/                        # Document root y archivos generados
 ├── resources/                  # Configuración, certificados y plantillas
-├── vol-01-var-log-nginx/       # Logs del servidor Nginx [^1]
-├── vol-02-var-log-php/         # Logs del runtime de PHP [^1]
+├── vol-01-var-log-nginx/       # Logs del servidor Nginx 
+├── vol-02-var-log-php/         # Logs del runtime de PHP 
 ├── vol-x-01-nginx-conf.d/      # Configuración del virtual host de Nginx
 └── Makefile                    # Atajos para operaciones Docker
 ```
 
-[^1]: Los logs se montan en `vol-01-var-log-nginx/` y `vol-02-var-log-php/`. Estos
+**Nota**: Los logs se montan en `vol-01-var-log-nginx/` y `vol-02-var-log-php/`. Estos
 directorios se crean al levantar los servicios y están excluidos del control
 de versiones.
 
