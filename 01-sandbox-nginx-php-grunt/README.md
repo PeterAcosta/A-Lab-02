@@ -86,14 +86,14 @@ También se puede utilizar:
 make bake    # Construye y levanta el stack usando Compose Bake
 make rerun   # Detiene y vuelve a iniciar los contenedores
 make rebuild # Reconstruye las imágenes desde cero
-make help    # Muestra los comandos disponibles
+make help    # Muestra los comandos disponibles en el **Makefile**
 ```
 
 ## Flujo de assets con Grunt
 
-Los archivos editables se encuentran en `sources/`. El contenedor
+Los archivos de codigo editables se encuentran en `sources/`. El contenedor
 `09-node-grunt` ejecuta la tarea predeterminada de Grunt al iniciar y luego
-mantiene activo el modo `watch`.
+mantiene activo el modo `watch`, observando cualquier cambio que se haga en el codigo.
 
 | Origen | Salida en `./www/` | Procesamiento |
 | --- | --- | --- |
@@ -143,6 +143,10 @@ docker exec -it 01-nginx bash
 docker exec -it 02-php bash
 docker exec -it 09-node-grunt bash
 ```
+
+## Notas sobre bash dentro de Alpine Linux 
+El contenedor **09-node-grunt** está construido a partir de la imagen `node:alpine3.18`, basada en **Alpine Linux 3.18**. Aunque Alpine utiliza habitualmente **sh** como shell, este contenedor también tiene **Bash** instalado. Por motivos de estudio y experimentación.
+
 
 ## Notas de seguridad
 
