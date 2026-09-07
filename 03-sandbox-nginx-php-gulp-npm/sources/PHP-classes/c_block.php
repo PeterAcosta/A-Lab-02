@@ -31,7 +31,6 @@ class c_block
     public $campos_mini_visor_1 = 't1.block_key,t1.cat1_key,t1.cat2_key,t1.last_downloads_average,t1.block_ucs,t1.lib_key,t1.block_description,t1.base_name_gif,t1.url_alias,t1.block_title,t1.block_day,t2.lib_url_alias';
     public $campos_mini_visor_2 = 't1.block_key,t1.cat1_key,t1.cat2_key,t1.last_downloads_average,t1.block_ucs,t1.lib_key,t1.block_description,t1.base_name_gif,t1.url_alias,t1.block_day,t1.base_name,t1.top_ranking,t1.view_total,t1.download_total,t1.last_downloads,t1.block_scale,t1.block_cost,t2.lib_url_alias';
 
-
     #---------------------------------------------------------------------------------------------------------3
     # function   : cantidad()
     # Created    : martes 24 de febrero de 2009 por Peter Acosta

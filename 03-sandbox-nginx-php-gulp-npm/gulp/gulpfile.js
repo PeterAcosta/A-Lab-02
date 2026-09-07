@@ -14,7 +14,7 @@ const header = require('gulp-header');
 
 
 
-const concatFileName = '_test'
+const concatFileName = '_main'
 const distoPath       = 'www/'
 
 const CSSfiles       = 'sources/CSS/*.css'
