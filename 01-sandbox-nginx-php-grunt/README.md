@@ -1,13 +1,13 @@
 <!-- LOGO DEL PROYECTO -->
 <img src="docker-nginx-php-grunt.jpeg" alt="Contenedores Docker con Nginx, PHP y Grunt" />
 
-# Workbench Docker: Nginx + PHP-FPM + Node/Grunt
+# Docker sandbox: Nginx + PHP-FPM + Node/Grunt
 
-Entorno de desarrollo local, reproducible y aislado para proyectos web PHP. El stack está compuesto por tres contenedores Docker que trabajan sobre una red privada y comparten el código del sitio:
+Entorno de desarrollo local, reproducible y aislado para proyectos web PHP. Jugando con la la arquitectura **Servidor Web + Lenguaje Backend + Task Runner Frontend**. El stack está compuesto por tres contenedores Docker que trabajan sobre una red privada y comparten el código del sitio:
 
 - **Nginx**: servidor web y proxy inverso. Atiende HTTP/HTTPS, sirve los archivos estáticos y envía las peticiones PHP a PHP-FPM.
 - **PHP-FPM**: ejecuta el código PHP de la aplicación. Utiliza PHP 8.2 sobre Debian Bookworm e incluye OPcache.
-- **Node.js + Grunt**: entorno de automatización frontend. Minifica CSS y JavaScript, concatena y optimiza archivos PHP, y observa los archivos fuente para regenerar los artefactos durante el desarrollo.
+- **Node.js + Grunt**: entorno de automatización frontend. Minifica CSS y JavaScript, concatena y optimiza archivos PHP, y observa los archivos fuente para regenerar los artefactos durante el desarrollo,aprovechando la capacidad de **Grunt** como automatizador de tareas **(task runner)**. 
 
 El sitio se publica con el dominio local `test.local`. La configuración de
 Nginx redirige HTTP a HTTPS y utiliza un certificado autofirmado incluido en
