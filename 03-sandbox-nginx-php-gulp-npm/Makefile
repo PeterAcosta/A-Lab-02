@@ -73,7 +73,12 @@ delete_images: ## 	Borra las 3 imagenes de este stack
 bring_gulp:
 	docker cp 09-gulp:/workdir/package.json      ./gulp
 	docker cp 09-gulp:/workdir/package-lock.json ./gulp
-	docker cp 09-gulp:/workdir/node_modules   	  ./gulp
+	docker cp 09-gulp:/workdir/node_modules     ./gulp
 
 gulp: ##			Ejecuta gulp dentro de su contenedor
 	docker exec -ti 09-gulp gulp
+
+
+fix-permissions:
+	sudo chown -R $$(id -u):$$(id -g) .
+	chmod -R u+rw .
