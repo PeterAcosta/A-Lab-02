@@ -21,9 +21,8 @@ module.exports = function (grunt) {
 	var PHP_SCRIPTS_SOURCE = 'sources/PHP-scripts/'
 	var PHP_SCRIPTS_OUTPUT = 'www/_scripts/'
 
-
-	var PHP_FUNCTIONS_SOURCE = 'sources/PHP-functions/*.php'
-	var PHP_FUNCTIONS_FILE = 'www/_functions.php';
+	var PHP_FUNCTIONS_SOURCE = 'sources/PHP-functions/'
+	var PHP_FUNCTIONS_OUTPUT_FILE = 'www/_functions.php';
 
 
 	// Project configuration. ------------------------------------------------------------------------------------------
@@ -56,6 +55,7 @@ module.exports = function (grunt) {
 
 		// -------------------------------------------------------------------------------------------------------------
 		cssmin: {
+			//// CSS
 			options: {
 				banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n',
 				sourceMap: true,
@@ -75,6 +75,7 @@ module.exports = function (grunt) {
 
 		// -------------------------------------------------------------------------------------------------------------
 		uglify: {
+			//// JS
 			options: {
 				banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */',
 				mangle: true,       // cambia los nombres de las variables
@@ -108,7 +109,7 @@ module.exports = function (grunt) {
 				// PHP-functions
 				files: [{
 					expand: true,
-					cwd: 'sources/PHP/',
+					cwd: PHP_FUNCTIONS_SOURCE,
 					src: '*.php',
 					dest: '<%= auxiliar.path %>/PHP-functions/'
 				}]
@@ -167,7 +168,7 @@ module.exports = function (grunt) {
 				},
 				src: '<%= auxiliar.path %>/PHP-functions/*.php',
 				// dest: 'www/_ceconet3.php'
-				dest: PHP_FUNCTIONS_FILE
+				dest: PHP_FUNCTIONS_OUTPUT_FILE
 			},
 
 			php_classes: {
@@ -230,7 +231,7 @@ module.exports = function (grunt) {
 			},
 			// functions
 			phpmin_php_functions: {
-				files: [PHP_FUNCTIONS_SOURCE],
+				files: [PHP_FUNCTIONS_SOURCE + PHP_FILES],
 				tasks: ['phpmin:php_functions']
 			},
 			concat_php_functions: {
