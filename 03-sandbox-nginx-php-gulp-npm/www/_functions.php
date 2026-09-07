@@ -1,16 +1,5 @@
 <?php
 
-#---------------------------------------------------------- source: sources/PHP-functions/debug-on-off.php 
-if ( !isset($_GET['action']) OR $_GET['action'] !='swap' ){
-die('bye bye...');}
-if (isset($_COOKIE['ceco_debug'])){
-unset($_COOKIE['ceco_debug']);
-setcookie('ceco_debug', '', time() - 3600, '/');
-} else {
-$duracion = time() + ( 60 * 60 * 24);
-setcookie('ceco_debug','ON', $duracion, '/');}
-header('Location: ' . $_SERVER['HTTP_REFERER']);
-
 #---------------------------------------------------------- source: sources/PHP-functions/f_arrays.php 
 
 function array_to_javascritp($array, $nombre_array_javascript, $primero = true){
