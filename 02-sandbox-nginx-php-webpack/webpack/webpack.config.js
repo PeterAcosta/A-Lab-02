@@ -9,8 +9,9 @@ const distPath = "www"
 
 module.exports = {
     // mode - modo de funcionamiento
-    // mode: "production",
-    mode: 'development',
+
+	// mode: 'development',
+	mode: "production",
     // watch: true,             // Habilita la vigilancia de archivos
 
     entry: './sources/JS/__entrypoint.js',     // archivo principal del proyecto
