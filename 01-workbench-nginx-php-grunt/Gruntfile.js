@@ -20,7 +20,6 @@ module.exports = function (grunt) {
 	var PHP_CLASSES_OUTPUT = 'www/_classes/'
 	var PHP_SCRIPTS_SOURCE = 'sources/PHP-scripts/'
 	var PHP_SCRIPTS_OUTPUT = 'www/_scripts/'
-
 	var PHP_FUNCTIONS_SOURCE = 'sources/PHP-functions/'
 	var PHP_FUNCTIONS_OUTPUT_FILE = 'www/_functions.php';
 
@@ -163,7 +162,7 @@ module.exports = function (grunt) {
 						rmClose: true
 					},
 					process: function (src, filepath) {
-						return '// ------------------------------------------------------------------------- source: ' + filepath + '\n' + src.replace(/(^|\n)[ \t]*('use strict'|"use strict");?\s*/g, '$1');
+						return '// --------------------------------------------------------------- source: ' + filepath + '\n' + src.replace(/(^|\n)[ \t]*('use strict'|"use strict");?\s*/g, '$1');
 					}
 				},
 				src: '<%= auxiliar.path %>/PHP-functions/*.php',
