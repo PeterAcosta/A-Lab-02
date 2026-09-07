@@ -18,9 +18,10 @@ module.exports = function (grunt) {
 	var PHP_FILES = '*.php'
 	var PHP_CLASSES_SOURCE = 'sources/PHP-classes/'
 	var PHP_CLASSES_OUTPUT = 'www/_classes/'
+	var PHP_SCRIPTS_SOURCE = 'sources/PHP-scripts/'
+	var PHP_SCRIPTS_OUTPUT = 'www/_scripts/'
 
 
-	var PHP_SCRIPTS_SOURCE = 'sources/PHP-scripts/*.php'
 	var PHP_FUNCTIONS_SOURCE = 'sources/PHP-functions/*.php'
 	var PHP_FUNCTIONS_FILE = 'www/_functions.php';
 
@@ -71,6 +72,7 @@ module.exports = function (grunt) {
 
 
 
+
 		// -------------------------------------------------------------------------------------------------------------
 		uglify: {
 			options: {
@@ -89,6 +91,7 @@ module.exports = function (grunt) {
 				dest: JS_OUTPUT_FILE
 			}
 		},
+
 
 
 
@@ -123,7 +126,7 @@ module.exports = function (grunt) {
 				// PHP-scripts
 				files: [{
 					expand: true,
-					cwd: 'sources/PHP-scripts/',
+					cwd: PHP_SCRIPTS_SOURCE,
 					src: '*.php',
 					dest: '<%= auxiliar.path %>/PHP-scripts/'
 				}]
@@ -199,7 +202,7 @@ module.exports = function (grunt) {
 					expand: true,
 					cwd: '<%= auxiliar.path %>/PHP-scripts/',
 					src: '*.php',
-					dest: 'www/_scripts/'
+					dest: PHP_SCRIPTS_OUTPUT
 				}]
 			}
 
@@ -245,7 +248,7 @@ module.exports = function (grunt) {
 			},
 			// scripts
 			phpmin_php_scripts: {
-				files: [PHP_SCRIPTS_SOURCE],
+				files: [PHP_SCRIPTS_SOURCE + PHP_FILES],
 				tasks: ['phpmin:php_scripts']
 			},
 			concat_php_scripts: {
