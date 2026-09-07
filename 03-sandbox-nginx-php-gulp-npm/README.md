@@ -1,9 +1,8 @@
-# Nginx + PHP-FPM + Node.js/Gulp
+<img src="docker-nginx-php-gulp.jpeg" alt="Contenedores Docker con Nginx, PHP y Grunt" />
 
-Entorno de desarrollo web basado en Docker Compose. El proyecto separa el
-servidor web, el runtime de PHP y el proceso de frontend en tres contenedores
-que comparten el código generado y se comunican a través de una red Docker
-privada.
+# Docker sandbox: Nginx + PHP-FPM + Node/Gulp
+
+Entorno de desarrollo local, reproducible y aislado para proyectos web PHP. Jugando con la la arquitectura **Servidor Web + Lenguaje Backend + Task Runner Frontend**. El stack está compuesto por tres contenedores Docker que trabajan sobre una red privada y comparten el código del sitio:
 
 ## Arquitectura
 
