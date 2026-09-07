@@ -18,14 +18,18 @@ help: ## 			ayuda
 	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//' | sort
 
 
+bake: ##                  Usa docker compose BAKE para construir y levantar los contenedores
+	COMPOSE_BAKE=true docker compose up -d
+
 
 wipe: ## 			Arrasa con todo, cierra todo, borras las imagenes y borra los directorios
-	docker-compose down 
+	@ echo " "
+	@sudo -v
+	docker compose down 
 	docker rmi  $$(docker images -aq )
 #	docker volume rm $$(docker volume ls -q)
 	sudo rm -R vol-01-var-log-nginx
 	sudo rm -R vol-02-var-log-php
-
 
 
 rebuild:  ## 		Detiene los contenedores, borra las imagens y recontruye todo

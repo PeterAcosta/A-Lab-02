@@ -65,3 +65,21 @@ $size = $bytes / 1024;
 $size = number_format($size, 2);
 $size .= ' KB';
 return $size;}
+
+
+#---------------------------------------------------------- source: sources/PHP-functions/function-00.php 
+
+function createH1Header($itle){
+return '<h1>' . htmlspecialchars($itle, ENT_QUOTES, 'UTF-8') . '</h1>';}
+
+
+#---------------------------------------------------------- source: sources/PHP-functions/function-01.php 
+
+function sum(int|float $a, int|float $b): int|float {
+return $a + $b;}
+
+
+#---------------------------------------------------------- source: sources/PHP-functions/function-02.php 
+
+function multiplicar(int|float $numero1, int|float $numero2){
+return $numero1 * $numero2;}

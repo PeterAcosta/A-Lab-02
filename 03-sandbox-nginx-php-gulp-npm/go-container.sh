@@ -1,7 +1,8 @@
 #!/bin/bash
 
 if [ $# -eq 0 ]; then
-    read -p "Por favor, ingresa un parámetro (1, 2 o 3): " input
+	echo -e " "
+    read -p "Por favor, ingresa un parámetro (1, 2 o 9): " input
 else
     input=$1
 fi
