@@ -16,3 +16,6 @@ var dia = fechaActual.getDate();
 
 // Mostrar el valor del día en la consola
 console.log("Hoy es el día " + dia);
+
+
+
