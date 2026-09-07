@@ -65,6 +65,7 @@ bake: ##                  Usa docker compose BAKE para construir y levantar los 
 
 
 wipe: ## 			Arrasa con todo, cierra todo, borras las imagenes y borra los directorios
+	@ echo " "
 	@sudo -v
 	docker compose down 
 	docker rmi  $$(docker images -aq )
