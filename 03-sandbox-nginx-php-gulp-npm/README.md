@@ -1,6 +1,6 @@
 <img src="docker-nginx-php-gulp.jpeg" alt="Contenedores Docker con Nginx, PHP y Grunt" />
 
-# Docker sandbox: Nginx + PHP-FPM + Node/Gulp
+# Docker sandbox: Nginx + PHP-FPM + Node/Gulp (npm)
 
 Entorno de desarrollo local, reproducible y aislado para proyectos web PHP. Jugando con la la arquitectura **Servidor Web + Lenguaje Backend + Task Runner Frontend**. El stack está compuesto por tres contenedores Docker que trabajan sobre una red privada y comparten el código del sitio:
 
@@ -42,6 +42,17 @@ Navegador
 - **`09-gulp`**: basado en `node:20.5.1-bookworm`. Instala Gulp y sus plugins,
   procesa los archivos fuente y mantiene un watcher activo para regenerar los
   resultados al detectar cambios.
+
+**Nota sobre `09-gulp`:** Este contenedor utiliza **NPM (Node Package Manager)**, 
+el gestor de paquetes de Node.js, para instalar las dependencias necesarias para 
+utilizar **Gulp** como task runner.
+NPM no instala **Node.js** ; Node.js ya viene incluido en la imagen base `node:20.5.1-bookworm`.
+Mediante **NPM** se instala **Gulp CLI** de forma global y **Gulp junto con sus plugins** 
+como dependencias de desarrollo del proyecto dentro de `/workdir/node_modules`.
+Posteriormente se creará otro contenedor equivalente utilizando **pnpm** como gestor de paquetes, 
+con el objetivo de comparar ambas alternativas.
+
+
 
 Los tres servicios se conectan a la red bridge `00-net-devel-01`. Nginx y
 PHP-FPM montan el mismo directorio `www/`, mientras que Gulp monta `sources/`
