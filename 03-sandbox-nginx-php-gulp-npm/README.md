@@ -12,14 +12,20 @@ Navegador
     │
     │ HTTPS :443 (HTTP :80 redirige a HTTPS)
     ▼
-┌─────────────────────┐       FastCGI :9000       ┌─────────────────────┐
-│ 01-nginx            │ ─────────────────────────▶│ 02-php              │
-│ Nginx + SSL         │                           │ PHP 8.2 + PHP-FPM   │
-│ /var/www/test       │                           │ /var/www/test       │
-└──────────▲──────────┘                           └─────────────────────┘
-           │
+┌─────────────────────┐      
+│ 01-nginx            │ 
+│ Nginx + SSL         │                           
+│ /var/www/test       │                           
+└──────────┬──────────┘                           
+           │ FastCGI :9000
+		   │
+┌──────────▼──────────┐
+│ 02-php              │
+│ PHP 8.2 + PHP-FPM   │
+│ /var/www/test       │
+└──────────▲──────────┘
            │ archivos generados en www/
-           │
+           │ 
 ┌──────────┴──────────┐
 │ 09-gulp             │
 │ Node.js 20 + Gulp   │
