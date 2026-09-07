@@ -74,10 +74,10 @@ delete_images: ## 	Borra las 3 imagenes de este stack
 	docker rmi  03-image-mariadb
 
 
-bring_gulp:
-	docker cp 09-gulp:/workdir/package.json      ./gulp
-	docker cp 09-gulp:/workdir/package-lock.json ./gulp
-	docker cp 09-gulp:/workdir/node_modules     ./gulp
+# bring_gulp:
+# 	docker cp 09-gulp:/workdir/package.json      ./gulp
+# 	docker cp 09-gulp:/workdir/package-lock.json ./gulp
+# 	docker cp 09-gulp:/workdir/node_modules     ./gulp
 
 gulp: ##			Ejecuta gulp dentro de su contenedor
 	docker exec -ti 09-gulp gulp
