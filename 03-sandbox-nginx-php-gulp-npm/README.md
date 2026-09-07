@@ -123,6 +123,7 @@ docker exec -it 02-php bash
 docker exec -it 09-gulp bash
 ```
 
+
 Para detener el entorno:
 
 ```bash
@@ -156,6 +157,27 @@ docker compose down
    `_functions.php`, los HTML procesados y `www/classes/`); volverán a
    generarse desde `sources/`.
 
-Este repositorio está orientado al desarrollo y las pruebas locales. Antes de
-usarlo en producción, deben sustituirse los certificados autofirmados,
-revisarse las credenciales y endurecer la configuración de Nginx y PHP.
+
+## Nota sobre la red Docker
+ Los tres contenedores (`01-nginx`, `02-php` y `09-node-grunt`) están conectados a la misma red Docker, `00-net-devel-01`. Esto permite que los contenedores se comuniquen entre sí dentro de la red privada `100.0.0.0/16`.
+
+
+## Notas de seguridad
+
+Este repositorio está pensado solo para **desarrollo local**. Antes de utilizarlo en
+producción:
+
+- Sustituir el certificado autofirmado por certificados gestionados
+  correctamente.
+- Revisar los secretos y archivos `.htpasswd` antes de publicarlos.
+- Ajustar los niveles de log y la configuración de PHP/Nginx.
+- No exponer directamente los puertos ni la red de desarrollo sin una capa de
+  seguridad adicional.
+
+
+
+## Autor :
+**Pedro Javier Acosta**
+- GitHub: 	[github.com/peteracosta](https://github.com/peteracosta)
+- LinkedIn: [linkedin.com/in/acosta-peter](https://linkedin.com/in/acosta-peter)
+
