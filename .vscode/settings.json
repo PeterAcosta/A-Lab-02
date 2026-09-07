@@ -10,6 +10,7 @@
 		}
 	],
 	"material-icon-theme.folders.associations": {
+		"02-php": "php",
 		"PHP-classes": "php",
 		"PHP-functions": "php",
 		"PHP-scripts": "php",
