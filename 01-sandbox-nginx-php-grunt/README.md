@@ -150,7 +150,7 @@ El contenedor **09-node-grunt** está construido a partir de la imagen `node:alp
 
 ## Notas de seguridad
 
-Este repositorio está pensado para **desarrollo local**. Antes de utilizarlo en
+Este repositorio está pensado solo para **desarrollo local**. Antes de utilizarlo en
 producción:
 
 - Sustituir el certificado autofirmado por certificados gestionados
