@@ -25,6 +25,7 @@ services:
 
 
     my-02-php-8-fpm:    ## cuidado: si cambias este nombre debes cambiarlo tambien en "fastcgi_pass"
+        user: "${UID}:${GID}"
         container_name: 02-php
         image: 02-image-php
         build:
@@ -41,6 +42,7 @@ services:
 
 
     devel-node-gulp:
+        user: "${UID}:${GID}"
         container_name: 09-gulp
         image: 09-image-gulp
         build:
