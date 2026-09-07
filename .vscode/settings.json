@@ -14,6 +14,7 @@
 		"PHP-classes": "php",
 		"PHP-functions": "php",
 		"PHP-scripts": "php",
-		"vol-x-01-nginx-conf.d": "Ngrx-store",
+		"01-nginx": "nginx",
+		"vol-x-01-nginx-conf.d": "nginx",
 	},
 }
