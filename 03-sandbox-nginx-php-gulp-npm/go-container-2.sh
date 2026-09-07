@@ -27,16 +27,17 @@ while true; do
 
     for i in "${!CONTAINERS[@]}"; do
         num=$((i + 1))
-        echo -e "${GREEN}${num})${RESET} ${CONTAINERS[$i]}"
+        echo -e "${YELLOW}  ${num})${RESET} ${CONTAINERS[$i]}"
     done
+	
+	echo -e "\n${BLUE}  x)${RESET} Salir\n"
 
-    echo ""
-    echo -e "${YELLOW}Elegí una opción o 'x' para salir${RESET}"
-    read -rp "> " opcion
+    # echo -e "${RESET}Elegí un contenedor para ingresar:${RESET}"
+    read -rp "Elige un contenedor para ingresar:" opcion
 
     # Salir
     if [[ "$opcion" == "x" || "$opcion" == "X" ]]; then
-        echo -e "${CYAN}Saliendo...${RESET}"
+        echo -e "${CYAN}Saliendo...${RESET}\n"
         exit 0
     fi
 
@@ -58,7 +59,7 @@ while true; do
 
     CONTAINER_NAME="${CONTAINERS[$((opcion - 1))]}"
 
-    echo -e "${CYAN}Ingresando al contenedor: ${BOLD}${CONTAINER_NAME}${RESET}"
+    echo -e "${CYAN}Ingresando al contenedor: ${BOLD}${CONTAINER_NAME} : \n${RESET}"
 
     # Intentar bash, si no existe usar sh
     if docker exec -it "$CONTAINER_NAME" /bin/bash 2>/dev/null; then
