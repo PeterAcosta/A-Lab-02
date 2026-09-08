@@ -1,3 +1,5 @@
+<img src="docker-nginx-php-task-runner.jpeg" alt="Contenedores Docker con Nginx, PHP y task runner" />
+
 # A-Lab-02: Docker Web Development Sandboxes
 
 Repositorio de estudio y experimentación para construir entornos de desarrollo
