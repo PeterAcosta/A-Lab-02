@@ -64,9 +64,62 @@ Dockerfiles, configuración y documentación.
 | [`03-sandbox-nginx-php-gulp-npm`](./03-sandbox-nginx-php-gulp-npm/) | Stack con Node.js + **Gulp**, administrado mediante **NPM**, para procesar CSS, JavaScript, HTML y partes reutilizables de PHP. |
 | [`05-sandbox-Grid-CSS`](./05-sandbox-Grid-CSS/) | Entorno de práctica centrado en ejemplos y experimentos de **CSS Grid**, integrado con Nginx, PHP-FPM y Gulp. |
 
-La numeración deja espacio para seguir incorporando nuevos experimentos y
-comparar distintas herramientas o configuraciones sin mezclar sus
-dependencias.
+
+
+## Sandboxes incluidos
+
+Cada carpeta contiene un experimento autónomo con su propio `docker-compose.yaml`,
+Dockerfiles, configuración y documentación.
+
+
+
+[`01-sandbox-nginx-php-grunt`](./01-sandbox-nginx-php-grunt/)
+Primer stack con **Nginx**, **PHP-FPM** y **Node.js + Grunt**. Incluye tareas para concatenar y minificar recursos y un modo `watch` para desarrollo.
+
+
+### 02 — Nginx + PHP-FPM + Webpack
+
+[`02-sandbox-nginx-php-webpack`](./02-sandbox-nginx-php-webpack/)
+
+Variante del stack anterior que utiliza **Webpack** para organizar y optimizar los recursos del frontend.
+
+---
+
+### 03 — Nginx + PHP-FPM + Gulp + NPM
+
+[`03-sandbox-nginx-php-gulp-npm`](./03-sandbox-nginx-php-gulp-npm/)
+
+Stack con **Node.js + Gulp**, administrado mediante **NPM**.
+
+Está orientado al procesamiento de:
+
+* CSS
+* JavaScript
+* HTML
+* Partes reutilizables de PHP
+
+---
+
+### 05 — CSS Grid
+
+[`05-sandbox-Grid-CSS`](./05-sandbox-Grid-CSS/)
+
+Entorno de práctica centrado en ejemplos y experimentos con **CSS Grid**.
+
+El entorno está integrado con:
+
+* Nginx
+* PHP-FPM
+* Gulp
+
+
+
+
+
+
+
+
+
 
 ## Flujo de trabajo
 
