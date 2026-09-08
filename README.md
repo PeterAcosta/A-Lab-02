@@ -1,4 +1,4 @@
-<img src="docker-nginx-php-task-runner.jpeg" alt="Contenedores Docker con Nginx, PHP y task runner" />
+<img src="docker-nginx-php-task-runner-2.jpeg" alt="Contenedores Docker con Nginx, PHP y task runner" />
 
 # A-Lab-02: Docker Web Development Sandboxes
 
