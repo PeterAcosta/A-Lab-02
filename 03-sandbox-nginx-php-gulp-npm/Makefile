@@ -71,7 +71,7 @@ pull_all_images: ## 	Hace el pull de todas las imagenes base necesarias
 delete_images: ## 	Borra las 3 imagenes de este stack
 	docker rmi  01-image-php-8.2.6  
 	docker rmi  02-image-node-3.17
-	docker rmi  03-image-mariadb
+# 	docker rmi  03-image-mariadb
 
 
 # bring_gulp:

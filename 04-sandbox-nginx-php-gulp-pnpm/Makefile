@@ -64,16 +64,22 @@ pull_all_images: ## 	Hace el pull de todas las imagenes base necesarias
 #	docker pull node:alpine3.17
 
 
+
 delete_images: ## 	Borra las 3 imagenes de este stack
 	docker rmi  01-image-php-8.2.6  
 	docker rmi  02-image-node-3.17
-	docker rmi  03-image-mariadb
+# 	docker rmi  03-image-mariadb
 
 
-bring_gulp:
-	docker cp 09-gulp:/workdir/package.json      ./gulp
-	docker cp 09-gulp:/workdir/package-lock.json ./gulp
-	docker cp 09-gulp:/workdir/node_modules   	  ./gulp
+# bring_gulp:
+# 	docker cp 09-gulp:/workdir/package.json      ./gulp
+# 	docker cp 09-gulp:/workdir/package-lock.json ./gulp
+# 	docker cp 09-gulp:/workdir/node_modules     ./gulp
 
 gulp: ##			Ejecuta gulp dentro de su contenedor
 	docker exec -ti 09-gulp gulp
+
+
+permissions-fix: ##	Arregla los permisos de los directorios y archivos del proyecto
+	sudo chown -R $$(id -u):$$(id -g) .
+	chmod -R u+rw .
