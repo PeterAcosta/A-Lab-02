@@ -11,8 +11,31 @@ El objetivo no es ofrecer una plantilla de producción, sino un **laboratorio
 práctico** en el que se pueda observar cómo se organizan, conectan y
 comunican varios contenedores para formar un stack web completo.
 
-## Stack común
 
+
+## Sandboxes incluidos
+
+Cada carpeta contiene un experimento autónomo con su propio `docker-compose.yaml`,
+Dockerfiles, configuración y documentación.
+
+[`01-sandbox-nginx-php-grunt`](./01-sandbox-nginx-php-grunt/):
+Primer stack con **Nginx**, **PHP-FPM** y **Node.js + Grunt**. Incluye tareas para concatenar y minificar recursos y un modo `watch` para desarrollo.
+
+[`02-sandbox-nginx-php-webpack`](./02-sandbox-nginx-php-webpack/):
+Variante del stack anterior que utiliza **Webpack** para organizar y optimizar los recursos del frontend.
+
+[`03-sandbox-nginx-php-gulp-npm`](./03-sandbox-nginx-php-gulp-npm/):
+Stack con **Node.js** + **Gulp**, administrado mediante **NPM**, para procesar CSS, JavaScript, HTML y partes reutilizables de PHP.
+
+[`05-sandbox-Grid-CSS`](./05-sandbox-Grid-CSS/):
+Entorno de práctica centrado en ejemplos y experimentos de **CSS Grid**, integrado con Nginx, PHP-FPM y Gulp.
+
+
+
+
+
+
+## Stack común
 Cada sandbox parte de una arquitectura de tres servicios Docker:
 
 ```text
@@ -51,27 +74,6 @@ Los servicios se conectan mediante una red Docker privada y comparten los
 directorios necesarios. El código editable se mantiene separado de los
 artefactos generados: normalmente se trabaja en `sources/` y el resultado se
 publica en `www/`, que es el document root utilizado por Nginx y PHP-FPM.
-
-
-
-## Sandboxes incluidos
-
-Cada carpeta contiene un experimento autónomo con su propio `docker-compose.yaml`,
-Dockerfiles, configuración y documentación.
-
-[`01-sandbox-nginx-php-grunt`](./01-sandbox-nginx-php-grunt/):
-Primer stack con **Nginx**, **PHP-FPM** y **Node.js + Grunt**. Incluye tareas para concatenar y minificar recursos y un modo `watch` para desarrollo.
-
-[`02-sandbox-nginx-php-webpack`](./02-sandbox-nginx-php-webpack/):
-Variante del stack anterior que utiliza **Webpack** para organizar y optimizar los recursos del frontend.
-
-[`03-sandbox-nginx-php-gulp-npm`](./03-sandbox-nginx-php-gulp-npm/):
-Stack con **Node.js** + **Gulp**, administrado mediante **NPM**, para procesar CSS, JavaScript, HTML y partes reutilizables de PHP.
-
-[`05-sandbox-Grid-CSS`](./05-sandbox-Grid-CSS/):
-Entorno de práctica centrado en ejemplos y experimentos de **CSS Grid**, integrado con Nginx, PHP-FPM y Gulp.
-
-
 
 
 
