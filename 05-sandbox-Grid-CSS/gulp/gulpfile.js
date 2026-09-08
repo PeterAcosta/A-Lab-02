@@ -58,7 +58,7 @@ function min_html(){
                 minifyJS:true,
                 removeComments:true
             }))
-        .pipe(dest( distoPath ));
+        .pipe(dest( distoPath +'html'));
 }
 
 
