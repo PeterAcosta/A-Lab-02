@@ -1,0 +1,81 @@
+ARG IMAGE_NAME="node:20.5.1-bookworm"
+FROM ${IMAGE_NAME}
+ARG IMAGE_NAME
+
+# docker pull node:20.5.1-bookworm
+
+EXPOSE 80 443
+
+
+ENV THIS_IMAGE="${IMAGE_NAME}"
+ENV THIS_IMAGE_TAG="09"
+ENV TZ=America/Argentina/Buenos_Aires
+
+### Estas variables son necesarias para pnpm 
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+
+
+## include & Entrypoint & scripts
+# COPY resources/09-gulp/ /workdir/
+COPY --chmod=0755 entrypoint.09-gulp.sh /usr/local/bin/entrypoint.sh 
+
+
+RUN apt-get update && \
+    apt-get install -y nano mc cron && \
+    echo "PS1='{ \033[01;33m\]$IMAGE_NAME\[\033[00m\] } [\[\033[1;31m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]] \$ '" >> /root/.bashrc && \
+    echo "alias ll='ls -alF'" >> /root/.bashrc && \
+    echo "alias lk='ls -l'" >> /root/.bashrc && \
+    echo $(date +"%Y.%m.%d - %T - Dockerfile Image Build : $IMAGE_NAME")  >> /home/docker.init.log
+
+
+WORKDIR /workdir
+
+
+
+RUN corepack enable && corepack prepare pnpm@latest --activate
+
+RUN pnpm init 
+
+RUN pnpm install --global gulp gulp-cli  && \
+    pnpm install --save-dev gulp-concat gulp-header && \
+    pnpm install --save-dev gulp-rename gulp-sourcemaps && \
+    pnpm install --save-dev gulp-uglify && \
+    pnpm install --save-dev gulp-clean-css && \
+    pnpm install --save-dev gulp-html-minifier2 && \
+    pnpm install --save-dev gulp-replace && \
+    pnpm install --save-dev gulp-insert && \
+    pnpm install --save-dev gulp-remove-empty-lines && \
+    pnpm install --save-dev gulp-trimlines && \
+    pnpm install --save-dev gulp-sharp-responsive
+
+
+
+###  WARN  2 deprecated subdependencies found: gulp-util@3.0.8, source-map-resolve@0.6.0
+
+
+
+
+ENTRYPOINT ["docker-entrypoint.sh"]
+
+
+# CMD ["node"]
+CMD ["/bin/bash"] 
+
+
+# --------------------------------------------------------------------------------------------
+
+# 09-image-gulp
+# 09-gulp
+
+## build:
+# docker build --tag 09-image-gulp -f Dockerfile.09-gulp .
+# docker history -H 09-node-gulp --no-trunc
+
+## run:
+# docker run --name 09-gulp 09-image-gulp
+# docker exec -ti 09-gulp bash
+# docker exec -ti 09-gulp sh
+
+## remove container & image:
+# docker rm -f 09-gulp && docker rmi 09-node-gulp
