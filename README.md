@@ -79,22 +79,8 @@ Primer stack con **Nginx**, **PHP-FPM** y **Node.js + Grunt**. Incluye tareas pa
 [`02-sandbox-nginx-php-webpack`](./02-sandbox-nginx-php-webpack/)
 Variante del stack anterior que utiliza **Webpack** para organizar y optimizar los recursos del frontend.
 
----
-
-### 03 — Nginx + PHP-FPM + Gulp + NPM
-
 [`03-sandbox-nginx-php-gulp-npm`](./03-sandbox-nginx-php-gulp-npm/)
-
-Stack con **Node.js + Gulp**, administrado mediante **NPM**.
-
-Está orientado al procesamiento de:
-
-* CSS
-* JavaScript
-* HTML
-* Partes reutilizables de PHP
-
----
+Stack con Node.js + **Gulp**, administrado mediante **NPM**, para procesar CSS, JavaScript, HTML y partes reutilizables de PHP.
 
 ### 05 — CSS Grid
 
