@@ -1,0 +1,32 @@
+body{
+    margin: 0;
+}
+
+.container-2{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr ;
+    /* grid-template-rows: repeat(3, minmax(100px,1fr)); */
+    grid-template-rows: 35px 1fr 100px;
+    min-height: 100vh;
+}
+
+
+.container-2 header{
+    background: #09f;
+    grid-column: 1/-1;
+}
+
+.container-2 aside{
+    background: yellow;
+}
+
+.container-2 main{
+    background: red;
+    grid-column: span 2;
+}
+
+.container-2 footer{
+    background: gray;
+    grid-column: 1/-1;
+
+}

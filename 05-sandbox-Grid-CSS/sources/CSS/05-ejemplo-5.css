@@ -1,0 +1,52 @@
+body{
+    margin: 0;
+}
+
+.container-5{
+    background: lightsalmon;
+    border: 3px solid black ;
+    border-radius: 10px;
+    
+    display: grid;
+    grid-template-columns: 50px 50px 50px ;
+    grid-auto-rows: 50px ;
+
+    gap: 4px;
+    height: 300px;
+    width: 300px;
+    
+    justify-content: center; 
+     /* justify-content: space-around; */
+
+    align-content: center; 
+    /* align-content: space-around ; */ 
+
+}
+
+
+.container-5 div {
+    background-color: lightblue;
+    border: 2px solid #09f;
+    border-radius: 6px;
+        
+}
+
+.container-5 div:first-child{
+    background: lightgreen;
+    border: 2px solid green;
+
+}
+
+
+.container-5 div:nth-child(2){
+    background: lightgreen;
+    border: 2px solid green;
+    opacity: 0.5;
+    
+}
+
+
+
+
+/* ***  MEDIA QUERYS *** *** *** *** *** *** *** *** *** *** */ 
+
