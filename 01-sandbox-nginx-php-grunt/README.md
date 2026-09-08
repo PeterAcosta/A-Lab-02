@@ -1,5 +1,5 @@
 <!-- LOGO DEL PROYECTO -->
-<img src="docker-nginx-php-grunt.jpeg" alt="Contenedores Docker con Nginx, PHP y Grunt" />
+<img src="docker-nginx-php-grunt-2.jpeg" alt="Contenedores Docker con Nginx, PHP y Grunt" />
 
 # Docker sandbox: Nginx + PHP-FPM + Node/Grunt
 
