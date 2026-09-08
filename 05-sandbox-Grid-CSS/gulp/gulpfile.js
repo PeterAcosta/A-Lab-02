@@ -14,8 +14,9 @@ const header = require('gulp-header');
 
 
 
-const concatFileName = '_test'
 const distoPath       = 'www/'
+const concatFileName = '_main'
+const concatPHPFunctionFileName = '_functions'
 
 const CSSfiles       = 'sources/CSS/*.css'
 const JSfiles        = 'sources/JS/*.js'
@@ -61,7 +62,7 @@ function min_html(){
 }
 
 
-// PHP -> muchos archivos a 1 
+//// PHP -> muchos archivos a 1 
 function min_php_functions(){
     return src( PHPfunctions + '*.php' )
         .pipe(replace('<?php', ''))
@@ -85,7 +86,7 @@ function min_php_functions(){
         .pipe(removeEmptyLines())                   // quita las lineas vacias
         .pipe(replace(/function\s/g, '\nfunction '))
         .pipe(header(`\n#---------------------------------------------------------- source: ${PHPfunctions}<%= file.basename %> \n`))
-        .pipe(concat( concatFileName + '.php' ))    // Concatena los archivos 
+        .pipe(concat( concatPHPFunctionFileName + '.php' ))    // Concatena los archivos 
         .pipe(insert.prepend('<?php\n'))            // Agrega el tag "<?php" al inicio del archivo
         .pipe(dest( distoPath ));
 }
@@ -93,7 +94,7 @@ function min_php_functions(){
 
 
 
-// PHP -> 1  a 1 
+//// PHP -> 1  a 1 
 function min_php_classes(){
     return src( PHPclasses + '*.php' )
         .pipe(trimlines())                          // quita espacios y tabs al principio
