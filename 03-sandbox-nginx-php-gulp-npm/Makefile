@@ -21,7 +21,6 @@ help: ## 			ayuda
 bake: ##                  Usa docker compose BAKE para construir y levantar los contenedores
 	COMPOSE_BAKE=true docker compose up -d
 
-
 wipe: ## 			Arrasa con todo, cierra todo, borras las imagenes y borra los directorios
 	@ echo " "
 	@sudo -v
@@ -35,18 +34,18 @@ wipe: ## 			Arrasa con todo, cierra todo, borras las imagenes y borra los direct
 rebuild:  ## 		Detiene los contenedores, borra las imagens y recontruye todo
 	clear 
 	@echo $(C2a)"Deteniendo los contenedores:\n"$(LINE-1)$(C0)
-	docker-compose down
+	docker compose down
 	@echo  $(C2a)$(LINE-1)"\n Borrando imagenes:"$(C0)
 	docker rmi  $$(docker images -aq )	
 	@echo  $(C2a)$(LINE-1)"\n Reconstruyendo imagenes y iniciando contenedores:"$(C0)
-	docker-compose up 
+	docker compose up 
 
 rerun: ## 		Detiene los contenedores y los vuelve a ejecutar
 	clear 
 	@echo $(C2a)"Deteniendo los contenedores:\n"$(LINE-1)$(C0)
-	docker-compose down
+	docker compose down
 	@echo  $(C2a)$(LINE-1)"\n Re-iniciando contenedores:"$(C0)
-	docker-compose up 
+	docker compose up 
 
 
 delete_all_images: ## 	Borra todas TODAS  las imagenes 

@@ -33,7 +33,8 @@ WORKDIR /workdir
 
 
 
-RUN corepack enable && corepack prepare pnpm@latest --activate
+# RUN corepack enable && corepack prepare pnpm@latest --activate
+RUN corepack enable && corepack prepare pnpm@10.15.1 --activate
 
 RUN pnpm init 
 
