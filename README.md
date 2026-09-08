@@ -73,13 +73,13 @@ Dockerfiles, configuración y documentación.
 
 
 
-[`01-sandbox-nginx-php-grunt`](./01-sandbox-nginx-php-grunt/)
+[`01-sandbox-nginx-php-grunt`](./01-sandbox-nginx-php-grunt/) :
 Primer stack con **Nginx**, **PHP-FPM** y **Node.js + Grunt**. Incluye tareas para concatenar y minificar recursos y un modo `watch` para desarrollo.
 
-[`02-sandbox-nginx-php-webpack`](./02-sandbox-nginx-php-webpack/)
+[`02-sandbox-nginx-php-webpack`](./02-sandbox-nginx-php-webpack/) :
 Variante del stack anterior que utiliza **Webpack** para organizar y optimizar los recursos del frontend.
 
-[`03-sandbox-nginx-php-gulp-npm`](./03-sandbox-nginx-php-gulp-npm/)
+[`03-sandbox-nginx-php-gulp-npm`](./03-sandbox-nginx-php-gulp-npm/) :
 Stack con Node.js + **Gulp**, administrado mediante **NPM**, para procesar CSS, JavaScript, HTML y partes reutilizables de PHP.
 
 ### 05 — CSS Grid
