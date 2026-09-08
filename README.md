@@ -21,21 +21,21 @@ Navegador
     │ HTTP/HTTPS
     ▼
 ┌─────────────────────────────┐
-│ Nginx                       │
+│ Nginx                       │  (contenedor Debian)
 │ Servidor web y proxy        │
 │ inverso / FastCGI           │
 └──────────────┬──────────────┘
                │ peticiones PHP
                ▼
 ┌─────────────────────────────┐
-│ PHP-FPM                     │
+│ PHP-FPM                     │  (contenedor Debian)
 │ Ejecución del backend PHP   │
 └─────────────────────────────┘
                ▲
                │ archivos procesados
                │
 ┌──────────────┴──────────────┐
-│ Node.js + task runner       │
+│ Node.js + task runner       │  (contenedor Alpine/Debian)
 │ Gulp, Grunt o Webpack       │
 └─────────────────────────────┘
 ```
