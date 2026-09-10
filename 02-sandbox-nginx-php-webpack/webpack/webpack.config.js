@@ -7,7 +7,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { minify } = require('html-minifier-terser');
 
 const PhpFunctionsBundlePlugin = require('./plugins/php-functions-bundle');
-
+const { execFileSync } = require('child_process');
 
 
 const isProd = process.env.NODE_ENV === 'production';
@@ -71,13 +71,49 @@ module.exports = {
 						},
 					},
 				},
+				{
+					from: 'sources/PHP-classes/*.php',
+					to: 'classes/[name][ext]', // -> www/classes/NombreClase.php
+					transform: {
+						transformer: (content, absoluteFrom) => {
+							// php_strip_whitespace necesita una ruta de archivo real,
+							// así que usamos absoluteFrom en vez del content en memoria
+							return execFileSync('php', [
+								'-r', 'echo php_strip_whitespace($argv[1]);', '--', absoluteFrom,
+							]);
+						},
+					},
+				},
+
+				{
+					from: 'sources/PHP-scripts/*.php',
+					to: 'scripts/[name][ext]', // -> www/scripts/Nombre-scripts.php
+					transform: {
+						transformer: (content, absoluteFrom) => {
+							// php_strip_whitespace necesita una ruta de archivo real,
+							// así que usamos absoluteFrom en vez del content en memoria
+							return execFileSync('php', [
+								'-r', 'echo php_strip_whitespace($argv[1]);', '--', absoluteFrom,
+							]);
+						},
+					},
+				},
+
+
+
+
 			],
 		}),
+
 
 		new PhpFunctionsBundlePlugin({
 			pattern: './sources/PHP-functions/*.php',
 			outputFilename: '_functions.php',
 		}),
+
+
+
+
 
 	],
 
