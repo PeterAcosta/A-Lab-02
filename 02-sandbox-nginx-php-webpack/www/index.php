@@ -1,9 +1,14 @@
 <?php
 
-echo "<a href='/index.php'>< < < Volver</a><br>";
-
+# require '_functions.php';
 $fecha = date('Y-m-d H:i:s');
-echo "$fecha <br><br>";
+
+
+# echo createH1Header('02-sandbox-nginx-php-webpack');
+
+echo "<a href='/HTML/index.html'>< < < Volver</a>";
+echo "   $fecha: ";
+
 
 
 phpinfo();
