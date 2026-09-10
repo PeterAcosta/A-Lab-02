@@ -8,8 +8,13 @@ const isProd = process.env.NODE_ENV === 'production';
 const distPath = 'www';
 
 // Orden alfabético — importa si tus estilos/scripts dependen del orden
-const jsFiles = glob.sync('./sources/JS/*.js').sort();
-const cssFiles = glob.sync('./sources/CSS/*.css').sort();
+const jsFiles = glob.sync('./sources/JS/*.js').sort().map(f => './' + f);
+const cssFiles = glob.sync('./sources/CSS/*.css').sort().map(f => './' + f);
+
+
+console.log('JS encontrados:', jsFiles);
+console.log('CSS encontrados:', cssFiles);
+
 
 module.exports = {
 

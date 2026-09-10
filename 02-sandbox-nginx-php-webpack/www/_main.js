@@ -1,1 +1,1 @@
-(()=>{"use strict";console.log("Compilando el CSS con Webpack 5")})();
+(()=>{var e=(new Date).getHours();console.log("La hora actual es "+e+" horas.");var a=(new Date).getDate();console.log("Hoy es el día "+a)})();
