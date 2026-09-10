@@ -38,4 +38,6 @@ function writeValues(){
     miParrafo.innerHTML = parrafo;
 
     console.log(parrafo);
+
+
 }
