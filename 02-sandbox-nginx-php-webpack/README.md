@@ -38,7 +38,7 @@ Navegador
 - **`02-php`** usa `php:8.2.9-fpm-bookworm`, ejecuta el backend PHP y habilita
   OPcache.
 - **`09-node-webpack`** usa `node:20.5.1-bookworm`. Instala Webpack y sus
-  plugins, procesa los archivos fuente y mantiene un watcher activo.
+  plugins, procesa los archivos fuente y mantiene un **watcher** activo.
 
 Los servicios comparten la red Docker `00-net-devel-01`, configurada con la
 subred `100.0.0.0/16`. Nginx y PHP montan `www/` como document root, mientras
@@ -73,8 +73,7 @@ archivos de `www/` son artefactos generados; deben editarse los originales en
 
 > La configuración actual solo incorpora archivos que coincidan con
 > `sources/JS/*.js` y `sources/CSS/*.css`. El archivo `sources/JS/__entrypoint.txt`
-> sirve como referencia, pero no es una entrada que Webpack cargue.
-
+> no es necesario en este esquema
 ## Requisitos
 
 - Docker Engine.
