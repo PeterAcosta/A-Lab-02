@@ -1,3 +1,5 @@
+<img src="docker-nginx-php-node-webpack-1.jpeg" alt="Contenedores Docker con Nginx, PHP y Node.js + Webpack" />
+
 # Docker sandbox: Nginx + PHP-FPM + Node/Webpack
 
 Entorno de desarrollo local para experimentar con una arquitectura web
