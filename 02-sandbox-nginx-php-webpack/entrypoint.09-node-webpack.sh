@@ -54,6 +54,9 @@ echo "- Entrypoint a : almost everything ready, only remains to be executed grun
 # grunt
 
 
+chmod 777 www/ 
+chmod -R 666 www/*.css www/*.js 
+
 npx webpack --watch
 
 

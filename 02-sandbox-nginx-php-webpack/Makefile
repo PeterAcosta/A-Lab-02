@@ -116,3 +116,7 @@ delete_images: ## 	Borra las 3 imagenes de este stack
 	docker rmi  01-image-php-8.2.6  
 	docker rmi  02-image-node-3.17
 	docker rmi  03-image-mariadb
+
+permissions-fix: ##	Arregla los permisos de los directorios y archivos del proyecto
+	sudo chown -R $$(id -u):$$(id -g) .
+	chmod -R u+rw .

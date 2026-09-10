@@ -21,8 +21,7 @@ RUN apt-get update && \
     echo "PS1='{ \033[01;33m\]$IMAGE_NAME\[\033[00m\] } [\[\033[1;31m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]] \$ '" >> /root/.bashrc && \
     echo "alias ll='ls -alF'" >> /root/.bashrc && \
     echo "alias lk='ls -l'" >> /root/.bashrc && \
-    echo $(date +"%Y.%m.%d - %T - Dockerfile Image Build : $IMAGE_NAME")  >> /home/docker.init.log
-
+    echo $(date +"%Y.%m.%d - %T - Dockerfile Image Build : $IMAGE_NAME")  >> /home/docker.init.log 
 
 WORKDIR /workdir
 
@@ -33,22 +32,21 @@ RUN npm init -y && \
     npm install --save-dev css-loader && \
     npm install --save-dev style-loader && \
     npm install --save-dev mini-css-extract-plugin && \
-    npm install --save-dev css-minimizer-webpack-plugin --save-dev \
+    npm install --save-dev css-minimizer-webpack-plugin --save-dev && \
 	npm install --save-dev glob webpack-remove-empty-scripts
 
 
+	
+# <-- recién ahora, al final para no barar privilegios necesarios en el contenedor
+# USER node 
+
 # Define el comando de entrada predeterminado
 # ENTRYPOINT ["/tmp/entrypoint.sh"]
-
-
-
 # ENTRYPOINT ["sleep 100000"]
-
 # Define el comando predeterminado si no se proporciona ninguno al iniciar el contenedor
 # CMD ["/bin/bash"] 
 
-
-ENTRYPOINT ["docker-entrypoint.sh"]
+ENTRYPOINT ["entrypoint.sh"]
 CMD ["node"]
 
 
