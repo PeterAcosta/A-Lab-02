@@ -49,6 +49,7 @@ module.exports = {
                 use: [
                     MiniCssExtractPlugin.loader,
                     { loader: 'css-loader', options: { url: false } },
+					{ loader: path.resolve(__dirname, 'webpack/filename-banner-CSS.js') },
                 ],
             },
         ],
