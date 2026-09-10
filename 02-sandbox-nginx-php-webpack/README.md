@@ -73,7 +73,7 @@ archivos de `www/` son artefactos generados; deben editarse los originales en
 
 > La configuración actual solo incorpora archivos que coincidan con
 > `sources/JS/*.js` y `sources/CSS/*.css`. El archivo `sources/JS/__entrypoint.txt`
-> no es necesario en este esquema
+> no es necesario en este esquema.
 ## Requisitos
 
 - Docker Engine.
