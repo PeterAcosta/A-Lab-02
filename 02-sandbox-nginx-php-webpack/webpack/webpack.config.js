@@ -6,7 +6,7 @@ const RemoveEmptyScriptsPlugin = require('webpack-remove-empty-scripts');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { minify } = require('html-minifier-terser');
 
-const PhpFunctionsBundlePlugin2 = require('./plugins/php-functions-bundle');
+const PhpFunctionsBundlePlugin = require('./plugins/php-functions-bundle');
 
 
 
