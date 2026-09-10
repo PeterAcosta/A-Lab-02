@@ -7,45 +7,41 @@ const basePath = __dirname ;
 const distPath = "www"
 
 
+
 module.exports = {
-    // mode - modo de funcionamiento
-
-	// mode: 'development',
-	mode: "production",
-    // watch: true,             // Habilita la vigilancia de archivos
-
-    entry: './sources/JS/__entrypoint.js',     // archivo principal del proyecto
-
+    mode: "production",
+    watch: true, // <-- Habilita el modo watcher continuo
+    entry: './sources/JS/__entrypoint.js',
     output: {
         path: path.resolve(__dirname, distPath),
         filename: '_main.js',
     },
-
-    
-    
     plugins: [
-        /* new HtmlWebpackPlugin({
-            minify:true,            // true o false
-            scriptLoading:defer     // defer o blocking
-        
-        }),*/
-        new MiniCssExtractPlugin(),
+        new MiniCssExtractPlugin({
+            filename: '_main.css' // <-- Genera el archivo CSS físico en www/
+        }),
     ],
-    
-
-
     module: {
         rules: [
-        {
-            test: /\.css$/i,
-            // use: [MiniCssExtractPlugin.loader, "css-loader"],   // prod
-            use: ["style-loader", "css-loader"],             // dev
-        },
+            {
+                test: /\.css$/i,
+                use: [
+                    MiniCssExtractPlugin.loader, // <-- Extrae a archivo .css
+                    {
+                        loader: "css-loader",
+                        options: {
+                            url: false // <-- Evita el error "Can't resolve 'fonts/...'"
+                        }
+                    }
+                ],
+            },
         ],
     },
-
-
-
-
-
+    optimization: {
+        minimizer: [
+            `...`,
+            new CssMinimizerPlugin(),
+        ],
+    },
 };
+

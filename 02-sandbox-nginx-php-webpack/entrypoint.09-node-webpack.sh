@@ -54,9 +54,10 @@ echo "- Entrypoint a : almost everything ready, only remains to be executed grun
 # grunt
 
 
-npx webpack
+npx webpack --watch
 
-tail -f /dev/null
+
+# tail -f /dev/null
 
 # -----------------------------------------------------------------------------------------
 
