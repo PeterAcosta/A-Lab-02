@@ -6,8 +6,6 @@ const RemoveEmptyScriptsPlugin = require('webpack-remove-empty-scripts');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { minify } = require('html-minifier-terser');
 
-
-// const PhpFunctionsBundlePlugin = require('php-functions-bundle');
 const PhpFunctionsBundlePlugin2 = require('./plugins/php-functions-bundle');
 
 
@@ -76,10 +74,10 @@ module.exports = {
 			],
 		}),
 
-		// new PhpFunctionsBundlePlugin({
-		// 	pattern: './sources/PHP-functions/*.php',
-		// 	outputFilename: '_functions.php',
-		// }),
+		new PhpFunctionsBundlePlugin({
+			pattern: './sources/PHP-functions/*.php',
+			outputFilename: '_functions.php',
+		}),
 
 	],
 
