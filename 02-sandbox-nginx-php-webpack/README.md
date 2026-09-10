@@ -15,21 +15,21 @@ Navegador
     │ http://test.local (80) → https://test.local (443)
     ▼
 ┌──────────────────────────┐
-│ 01-nginx                 │
+│ 01-nginx                 │  (contenedor Debian)
 │ Nginx + SSL              │
 │ /var/www/test            │
 └────────────┬─────────────┘
              │ FastCGI :9000
              ▼
 ┌──────────────────────────┐
-│ 02-php                   │
+│ 02-php                   │  (contenedor Debian)
 │ PHP 8.2.9 + PHP-FPM      │
 │ /var/www/test            │
 └──────────────────────────┘
              ▲
              │ archivos procesados en www/
 ┌────────────┴─────────────┐
-│ 09-node-webpack          │
+│ 09-node-webpack          │  (contenedor Debian)
 │ Node.js 20.5.1 + Webpack │
 │ sources/ → www/          │
 └──────────────────────────┘
