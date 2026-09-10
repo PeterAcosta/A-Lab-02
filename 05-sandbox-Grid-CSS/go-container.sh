@@ -13,16 +13,16 @@ BLUE='\033[1;34m'
 
 while true; do
     # Obtener lista de contenedores corriendo (solo nombres)
-    mapfile -t CONTAINERS < <(docker ps --format '{{.Names}}')
+    mapfile -t CONTAINERS < <(docker ps --format '{{.Names}}' | sort)
 
     if [ ${#CONTAINERS[@]} -eq 0 ]; then
         echo -e "${RED}No hay contenedores corriendo actualmente.${RESET}"
         exit 1
     fi
 
-    echo -e "\n${BLUE}=======================================${RESET}"
-    echo -e "${BOLD}  Contenedores Docker en ejecución${RESET}"
-    echo -e "${BLUE}=======================================${RESET}"
+    echo -e "\n${BLUE}===========================================${RESET}"
+    echo -e "${BOLD}  Contenedores Docker en ejecución$  v0.2 ${RESET}"
+    echo -e "${BLUE}===========================================${RESET}"
     echo ""
 
     for i in "${!CONTAINERS[@]}"; do
