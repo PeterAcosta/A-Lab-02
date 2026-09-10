@@ -53,9 +53,9 @@ echo "- Entrypoint a : almost everything ready, only remains to be executed grun
 # grunt concat 
 # grunt
 
-
+# Luego quitar esto 
 chmod 777 www/ 
-chmod -R 666 www/*.css www/*.js 
+chmod -R 777 www/*.css www/*.js 
 
 npx webpack --watch
 
