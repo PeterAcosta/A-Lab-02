@@ -1,4 +1,4 @@
-<img src="docker-nginx-php-gulp.jpeg" alt="Contenedores Docker con Nginx, PHP y Grunt" />
+<img src="docker-nginx-php-gulp.jpeg" alt="Contenedores Docker con Nginx, PHP y Node.js + Grunt" />
 
 # Docker sandbox: Nginx + PHP-FPM + Node/Gulp (npm)
 
