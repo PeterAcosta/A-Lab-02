@@ -12,21 +12,21 @@ Navegador
     │ HTTPS :443 (HTTP :80 redirige a HTTPS)
     ▼
 ┌─────────────────────┐      
-│ 01-nginx            │ 
-│ Nginx + SSL         │                           
+│ 01-nginx            │  (contenedor Debian)
+│ Nginx + SSL         │        
 │ /var/www/test       │                           
 └──────────┬──────────┘                           
            │ FastCGI :9000
 		   │
 ┌──────────▼──────────┐
-│ 02-php              │
+│ 02-php              │  (contenedor Debian)
 │ PHP 8.2 + PHP-FPM   │
 │ /var/www/test       │
 └──────────▲──────────┘
            │ archivos generados en www/
            │ 
 ┌──────────┴──────────┐
-│ 09-gulp             │
+│ 09-gulp             │  (contenedor Debian)
 │ Node.js 20 + Gulp   │
 │ sources/ → www/     │
 └─────────────────────┘
