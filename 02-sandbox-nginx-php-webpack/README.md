@@ -144,7 +144,7 @@ docker exec -it 09-node-webpack bash
 ├── entrypoint.*.sh                  # Inicialización de cada contenedor
 ├── webpack/
 │   ├── webpack.config.js            # Pipeline de transformación
-│   ├── plugins/                     # Plugin local para agrupar funciones PHP
+│   ├── plugins/                     # Aqui van plugins personalizados para webpack
 │   ├── package.json                 # Scripts y dependencias del proyecto
 │   └── package-lock.json            # Versiones bloqueadas de NPM
 ├── sources/                         # Código fuente editable
