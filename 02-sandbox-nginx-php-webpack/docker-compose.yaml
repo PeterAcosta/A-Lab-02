@@ -53,8 +53,8 @@ services:
             - ./webpack/package-lock.json:/workdir/package-lock.json
             - ./webpack/package.json:/workdir/package.json
             - ./webpack/webpack.config.js:/workdir/webpack.config.js
-            - ./webpack/php-functions-bundle.js:/workdir/php-functions-bundle.js
-
+            # - ./webpack/php-functions-bundle.js:/workdir/php-functions-bundle.js
+            - ./webpack/plugins:/workdir/plugins
             - ./sources:/workdir/sources
             - ./www:/workdir/www
         entrypoint: entrypoint.sh

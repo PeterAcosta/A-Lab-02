@@ -7,8 +7,8 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { minify } = require('html-minifier-terser');
 
 
-// const PhpFunctionsBundlePlugin = require('./workdir/php-functions-bundle');
-// const PhpFunctionsBundlePlugin = require('./php-functions-bundle');
+// const PhpFunctionsBundlePlugin = require('php-functions-bundle');
+const PhpFunctionsBundlePlugin2 = require('./plugins/php-functions-bundle');
 
 
 
