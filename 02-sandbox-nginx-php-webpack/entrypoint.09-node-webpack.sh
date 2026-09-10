@@ -10,8 +10,8 @@ echo "- Entrypoint a : starting ..."  >> /home/docker.init.log
 # figlet $THIS_IMAGE
 # neofetch
 
-echo -n $(date +"%Y.%m.%d - %H:%M:%S:%N")  >> /home/docker.init.log
-echo "- Entrypoint a : figlet + neofetch almost ready" >> /home/docker.init.log
+# echo -n $(date +"%Y.%m.%d - %H:%M:%S:%N")  >> /home/docker.init.log
+# echo "- Entrypoint a : figlet + neofetch almost ready" >> /home/docker.init.log
 
 
 sleep 2
@@ -47,11 +47,8 @@ echo -e $regla
 
 
 echo -n $(date +"%Y.%m.%d - %H:%M:%S:%N")  >> /home/docker.init.log
-echo "- Entrypoint a : almost everything ready, only remains to be executed grunt " >> /home/docker.init.log
+echo "- Entrypoint a : almost everything ready " >> /home/docker.init.log
 
-
-# grunt concat 
-# grunt
 
 # Luego quitar esto 
 chmod 777 www/ 
@@ -70,12 +67,5 @@ npx webpack --watch
 # chown -R www-data:www-data /var/www/html/
 
 # echo $(date +"%Y.%m.%d - %H:%M:%S:%N - Entrypoint : almost end")  >> /tmp/_start.log
-
-
-
-# apache2-foreground
-
-# esta ultima linea nunca se ejecuta
-# echo $(date +"%Y.%m.%d - %H:%M:%S:%N - Entrypoint : despues de Apache2")  >> /tmp/_start.log
 
 

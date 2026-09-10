@@ -48,7 +48,7 @@ RUN npm init -y && \
 # CMD ["/bin/bash"] 
 
 ENTRYPOINT ["entrypoint.sh"]
-CMD ["node"]
+CMD ["/bin/bash"] 
 
 
 # --------------------------------------------------------------------------------------------

@@ -6,6 +6,12 @@ const RemoveEmptyScriptsPlugin = require('webpack-remove-empty-scripts');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { minify } = require('html-minifier-terser');
 
+
+// const PhpFunctionsBundlePlugin = require('./workdir/php-functions-bundle');
+// const PhpFunctionsBundlePlugin = require('./php-functions-bundle');
+
+
+
 const isProd = process.env.NODE_ENV === 'production';
 const distPath = 'www';
 
@@ -69,6 +75,11 @@ module.exports = {
 				},
 			],
 		}),
+
+		// new PhpFunctionsBundlePlugin({
+		// 	pattern: './sources/PHP-functions/*.php',
+		// 	outputFilename: '_functions.php',
+		// }),
 
 	],
 
