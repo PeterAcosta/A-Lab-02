@@ -59,6 +59,8 @@ services:
             - ./www:/workdir/www
         entrypoint: entrypoint.sh
         restart: unless-stopped
+        environment:
+          - NODE_ENV=${NODE_ENV}
         networks:
             00-net-devel-01:
                 ipv4_address: 100.0.0.19
