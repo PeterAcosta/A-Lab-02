@@ -34,7 +34,8 @@ RUN npm init -y && \
     npm install --save-dev css-loader && \
     npm install --save-dev style-loader && \
     npm install --save-dev mini-css-extract-plugin && \
-    npm install --save-dev css-minimizer-webpack-plugin --save-dev && \
+	npm install --save-dev postcss && \
+    npm install --save-dev css-minimizer-webpack-plugin && \
 	npm install --save-dev glob webpack-remove-empty-scripts && \
 	npm install --save-dev copy-webpack-plugin html-minifier-terser
 

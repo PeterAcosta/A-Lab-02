@@ -32,7 +32,7 @@ class PhpFunctionsBundlePlugin {
                             content = content.slice(0, -2).trim();
                         }
 
-                        return `// //////////////////// ${path.basename(file)} ---\n${content}`;
+                        return `// ---------------------------------------- ${path.basename(file)} ---/\n${content}`;
                     });
 
                     const finalContent = '<?php\n\n' + fragments.join('\n\n');
