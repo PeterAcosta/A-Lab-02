@@ -3,8 +3,8 @@
 # Docker sandbox: Nginx + PHP-FPM + Node/Webpack
 
 Entorno de desarrollo local para experimentar con una arquitectura web
-separada en tres contenedores Docker: servidor web, runtime de backend y
-herramientas de procesamiento frontend. El código fuente se mantiene en
+separada en tres contenedores Docker: **servidor web** , **runtime de backend** y
+**herramientas de procesamiento frontend**. El código fuente se mantiene en
 `sources/` y los artefactos que publica el sitio se generan en `www/`.
 
 ## Arquitectura
@@ -36,9 +36,9 @@ herramientas de procesamiento frontend. El código fuente se mantiene en
 ```
 
 - **`01-nginx`** usa `nginx:1.25.2-bookworm`, sirve archivos estáticos,
-  termina TLS y reenvía las peticiones PHP a PHP-FPM mediante FastCGI.
+  termina TLS y reenvía las peticiones PHP a **PHP-FPM** mediante **FastCGI**.
 - **`02-php`** usa `php:8.2.9-fpm-bookworm`, ejecuta el backend PHP y habilita
-  OPcache.
+  **OPcache**.
 - **`09-node-webpack`** usa `node:20.5.1-bookworm`. Instala Webpack y sus
   plugins, procesa los archivos fuente y mantiene un **watcher** activo.
 
@@ -49,7 +49,7 @@ que el contenedor de Node monta `sources/`, `webpack/` y `www/`.
 ## Pipeline con Webpack
 
 El archivo [`webpack/webpack.config.js`](./webpack/webpack.config.js) busca los
-archivos CSS y JavaScript en orden alfabético y activa `watch`. El entrypoint del
+archivos CSS , JavaScript y HTML en orden alfabético y activa `watch`. El entrypoint del
 contenedor ejecuta:
 
 ```bash
@@ -109,14 +109,6 @@ docker compose up -d --build
 Después de iniciar los servicios, abrir <https://test.local>. El puerto `80`
 redirige al puerto HTTPS `443`.
 
-Para revisar el estado y los logs:
-
-```bash
-docker compose ps
-docker compose logs -f 09-node-webpack
-docker compose logs -f 01-nginx
-docker compose logs -f 02-php
-```
 
 Para detener el entorno:
 
@@ -136,11 +128,18 @@ make help       # Muestra los comandos disponibles
 ```
 
 También se puede abrir una shell directamente:
-
 ```bash
 docker exec -it 01-nginx bash
 docker exec -it 02-php bash
 docker exec -it 09-node-webpack bash
+```
+
+Para revisar el estado y los logs (ultimas 50 lineas):
+```bash
+docker compose ps
+docker compose logs --tail=50 my-01-nginx
+docker compose logs --tail=50 my-02-php-8-fpm
+docker compose logs --tail=50 devel-node-webpack
 ```
 
 ## Estructura principal
