@@ -24,11 +24,10 @@ console.log('CSS encontrados:', cssFiles);
 
 module.exports = {
 
-	// mode: isProd ? 'production' : 'development',
-	// watch: !isProd,
-
+	// Webpack cambiará entre "production" y "development" automáticamente según la variable
+    mode: isProd ? 'production' : 'development',
 	// mode: "development"
-	mode: "production",
+	// mode: "production",
 
 	watch: true, // <-- Habilita el modo watcher continuo
 	cache: { type: 'filesystem' },
