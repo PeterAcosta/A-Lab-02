@@ -16,10 +16,10 @@ Nginx redirige HTTP a HTTPS y utiliza un certificado autofirmado incluido en
 ## Arquitectura
 
 ```text
-Navegador
-   │
-   │ https://test.local (puertos 80/443)
-   ▼
+       Navegador
+           │
+           │ https://test.local (puertos 80/443)
+           ▼
 ┌──────────────────────┐
 │ 01-nginx             │  (contenedor Debian)
 │ Nginx + SSL          │  

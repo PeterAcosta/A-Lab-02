@@ -7,10 +7,10 @@ Entorno de desarrollo local, reproducible y aislado para proyectos web PHP. Juga
 ## Arquitectura
 
 ```text
-Navegador
-    │
-    │ HTTPS :443 (HTTP :80 redirige a HTTPS)
-    ▼
+       Navegador
+           │
+           │ HTTPS :443 (HTTP :80 redirige a HTTPS)
+           ▼
 ┌─────────────────────┐      
 │ 01-nginx            │  (contenedor Debian)
 │ Nginx + SSL         │        

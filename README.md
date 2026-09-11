@@ -39,10 +39,10 @@ Entorno de práctica centrado en ejemplos y experimentos de **CSS Grid**, integr
 Cada sandbox parte de una arquitectura de tres servicios Docker:
 
 ```text
-Navegador
-    │
-    │ HTTP/HTTPS
-    ▼
+           Navegador
+               │
+               │ HTTP/HTTPS
+               ▼
 ┌─────────────────────────────┐
 │ Nginx                       │  (contenedor Debian)
 │ Servidor web y proxy        │
