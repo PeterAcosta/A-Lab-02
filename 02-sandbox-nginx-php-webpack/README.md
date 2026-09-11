@@ -10,7 +10,7 @@ herramientas de procesamiento frontend. El código fuente se mantiene en
 ## Arquitectura
 
 ```text
-    Navegador web
+         Navegador
              │
              │ http://test.local (80) → https://test.local (443)
              ▼
@@ -49,12 +49,20 @@ que el contenedor de Node monta `sources/`, `webpack/` y `www/`.
 ## Pipeline con Webpack
 
 El archivo [`webpack/webpack.config.js`](./webpack/webpack.config.js) busca los
-archivos CSS y JavaScript en orden alfabético, compila en modo `production` y
-activa `watch`. El entrypoint del contenedor ejecuta:
+archivos CSS y JavaScript en orden alfabético y activa `watch`. El entrypoint del
+contenedor ejecuta:
 
 ```bash
 npx webpack --watch
 ```
+
+El archivo [`.env`](./.env) define `NODE_ENV`, que Docker transmite al
+contenedor `09-node-webpack`. Webpack usa esa variable en
+[`webpack/webpack.config.js`](./webpack/webpack.config.js) para seleccionar el
+modo de compilación: `development` facilita el trabajo local y `production`
+activa la optimización para una salida lista para publicar. Para cambiar el
+comportamiento, modifica `NODE_ENV` en `.env` y reinicia o reconstruye los
+servicios.
 
 El pipeline realiza estas transformaciones:
 
@@ -140,6 +148,7 @@ docker exec -it 09-node-webpack bash
 ```text
 .
 ├── docker-compose.yaml              # Servicios, red, puertos y volúmenes
+├── .env                              # Variable NODE_ENV para Webpack
 ├── Dockerfile.01-nginx              # Imagen de Nginx
 ├── Dockerfile.02-php                # Imagen de PHP-FPM
 ├── Dockerfile.09-node-webpack       # Imagen de Node.js y Webpack
