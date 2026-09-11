@@ -10,10 +10,10 @@ herramientas de procesamiento frontend. El código fuente se mantiene en
 ## Arquitectura
 
 ```text
-Navegador
-    │
-    │ http://test.local (80) → https://test.local (443)
-    ▼
+    Navegador web
+             │
+             │ http://test.local (80) → https://test.local (443)
+             ▼
 ┌──────────────────────────┐
 │ 01-nginx                 │  (contenedor Debian)
 │ Nginx + SSL              │
