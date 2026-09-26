@@ -1,48 +1,48 @@
 #!/bin/bash
 
+# ---------------------------------------------------------------------
+# entrypoint.04-postgresql.sh
+#
+# PostgreSQL 18.6
+# Debian 13 (Trixie)
+#
+# Este script es el ENTRYPOINT personalizado del contenedor.
+# ---------------------------------------------------------------------
 
-DOMAIN_NAME="test.local"
-DOMAIN_DIR="/var/www/test"
+set -e
 
+echo
+echo "=============================================================="
+echo "  04 - PostgreSQL"
+echo "  Image : ${THIS_IMAGE}"
+echo "  Tag   : ${THIS_IMAGE_TAG}"
+echo "  TZ    : ${TZ}"
+echo "=============================================================="
+echo
 
-# Verificar si el archivo "/tmp/00-mariadb-docker-init.log" existe
-if [ -f '/tmp/00-nginx-docker-init.log' ]; then
-    # Primera vez que corre
+# ---------------------------------------------------------------------
+# Información del sistema
+# ---------------------------------------------------------------------
 
-    mv /tmp/00-nginx-docker-init.log /var/log/nginx/00-nginx-docker-init.log
-    echo -e $(date +"1a- %Y-%m-%d  %A  %T - Entrypoint : moviendo 00-nginx-docker-init.log")  >> /var/log/nginx/00-nginx-docker-init.log
+echo "### Sistema:"
+cat /etc/debian_version
+echo
 
+echo "### PostgreSQL:"
+postgres --version
+echo
 
+# ---------------------------------------------------------------------
+# Ejecutar el ENTRYPOINT oficial de PostgreSQL
+# ---------------------------------------------------------------------
+#
+# La imagen oficial de PostgreSQL ya trae su propio entrypoint:
+#
+# /usr/local/bin/docker-entrypoint.sh
+#
+# No debemos reemplazar su funcionamiento.
+# Nuestro script simplemente hace las personalizaciones anteriores
+# y luego le entrega el control al entrypoint oficial.
+# ---------------------------------------------------------------------
 
-    chown -R www-data:www-data "$DOMAIN_DIR"
-    echo -e $(date +"1b- %Y-%m-%d  %A  %T - Entrypoint : chown -R www-data:www-data $DOMAIN_DIR")  >> /var/log/nginx/00-nginx-docker-init.log
-
-    
-
-    # sleep 1
-else 
-    echo -e $(date +"\n1 - %Y-%m-%d  %A  %T - Entrypoint : starting")  >> '/var/log/nginx/00-nginx-docker-init.log'
-fi
-
-
-regla="\e[0;34m---------------------------------------------------------------------------\e[0m"
-echo -e $regla 
-
-## CRON
-service cron restart 
-echo -e $(date +"2 - %Y-%m-%d  %A  %T - Entrypoint : restarted cron")  >> '/var/log/nginx/00-nginx-docker-init.log'
-
-
-
-# logrotate -f /etc/logrotate.conf  ## con -f fuerza a rotar
-# logrotate /etc/logrotate.conf     ## sin -f no fuerza a rotar
-
-
-
-
-echo -e $(date +"3 - %Y-%m-%d  %A  %T - Entrypoint : starting nginx")  >> '/var/log/nginx/00-nginx-docker-init.log'
-
-nginx -g "daemon off;"
-
-echo -e $(date +"4 - %Y-%m-%d  %A  %T - Entrypoint : nginx has stopped !!!")  >> '/var/log/nginx/00-nginx-docker-init.log'
-
+exec /usr/local/bin/docker-entrypoint.sh "$@"

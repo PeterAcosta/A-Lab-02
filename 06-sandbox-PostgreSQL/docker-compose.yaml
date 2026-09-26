@@ -1,92 +1,85 @@
-# version: '3.9'
 
 services:
 
-    my-01-nginx:
-        container_name: 01-nginx
-        image: 01-image-nginx
-        build:
-            context: .
-            dockerfile: Dockerfile.01-nginx
-        init: true
-        volumes:
-            - $PWD/vol-01-var-log-nginx:/var/log/nginx
-            - $PWD/vol-x-01-nginx-conf.d:/etc/nginx/conf.d
-            - $PWD/www:/var/www/test
-        ports: 
-            - "80:80"       
-            - "443:443"     
-        restart: unless-stopped
-        links:
-            - my-02-php-8-fpm
-        networks:
-            00-net-devel-01:
-                ipv4_address: 100.0.0.11
+  my-postgresql:
+    build:
+      context: .
+      dockerfile: Dockerfile.04-postgresql
+
+    image: 04-image-postgresql
+    container_name: 04-postgresql
+
+    restart: unless-stopped
+
+    ports:
+      - "5432:5432"
+
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+      TZ: America/Argentina/Buenos_Aires
+
+    volumes:
+      - 04-vol-postgresql-database:/var/lib/postgresql
+
+    networks:
+      - 00-net-devel-02
 
 
-    my-02-php-8-fpm:    ## cuidado: si cambias este nombre debes cambiarlo tambien en "fastcgi_pass"
-        container_name: 02-php
-        image: 02-image-php
-        build:
-            context: .
-            dockerfile: Dockerfile.02-php
-        volumes:
-            - $PWD/vol-02-var-log-php:/var/log/php
-            - $PWD/www:/var/www/test
-        restart: unless-stopped
-        networks:
-            00-net-devel-01:
-                ipv4_address: 100.0.0.12
-
-
-
-    devel-node-gulp:
-        container_name: 09-gulp
-        image: 09-image-gulp
-        build:
-            context: .
-            dockerfile: Dockerfile.09-gulp
-        init: true
-        volumes:
-            - ./gulp/gulpfile.js:/workdir/gulpfile.js
-            - ./sources:/workdir/sources
-            - ./www:/workdir/www
-        entrypoint: entrypoint.sh
-        restart: unless-stopped
-        networks:
-            00-net-devel-01:
-                ipv4_address: 100.0.0.19
-
-#            - ./gulp/gulpfile.js:/workdir/gulpfile.js
-#            - ./gulp/node_modules:/workdir/node_modules
-#            - ./gulp/package-lock.json:/workdir/package-lock.json
-#            - ./gulp/package.json:/workdir/package.json
-
-
-
+volumes:
+  04-vol-postgresql-database:
+    name: 04-vol-postgresql-database
 
 
 networks:
-    00-net-devel-01:
-        name: 00-net-devel-01
-        driver: bridge
-        ipam:
-            config:
-                -   subnet: 100.0.0.0/16
-                    gateway: 100.0.0.1
-
-
-
-# ------------------------------------------------------------------------------------------------
-# docker-compose -f docker-compose.yaml up 
-# docker-compose -f docker-compose.yaml down
-
-# nginx         docker exec -ti 01-nginx  bash
-# PHP           docker exec -it 02-php bash
-# ------------------------------------------------------------------------------------------------
+  00-net-devel-02:
+    name: 00-net-devel-02
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.30.0.0/16
+          gateway: 172.30.0.1
 
 
 # ------------------------------------------------------------------------------------------------
-# docker rmi 01-image-php-7.2.33  09-image-node
+# AYUDA MEMORIA
+# ------------------------------------------------------------------------------------------------
 
+### Construir la imagen y crear/arrancar el contenedor:
+# docker compose -f docker-compose.yaml up -d --build
+
+
+### Ver los contenedores del Compose:
+# docker compose -f docker-compose.yaml ps
+
+
+### Ver los logs de PostgreSQL:
+# docker compose -f docker-compose.yaml logs -f
+
+
+### Entrar al contenedor PostgreSQL:
+# docker exec -it 04-postgresql bash
+
+
+### Detener y eliminar el contenedor:
+### El volumen NO se elimina.
+# docker compose -f docker-compose.yaml down
+
+
+### Detener y eliminar contenedor + volumen:
+### ¡ELIMINA LOS DATOS DE POSTGRESQL!
+# docker compose -f docker-compose.yaml down -v
+
+
+### Ver el volumen:
+# docker volume inspect 04-vol-postgresql-database
+
+
+### Ver las redes:
+# docker network ls
+
+
+### Ver la red:
+# docker network inspect 00-net-devel-02
 

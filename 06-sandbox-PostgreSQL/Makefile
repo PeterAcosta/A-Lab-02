@@ -26,9 +26,9 @@ wipe: ## 			Arrasa con todo, cierra todo, borras las imagenes y borra los direct
 	@sudo -v
 	docker compose down 
 	docker rmi  $$(docker images -aq )
-#	docker volume rm $$(docker volume ls -q)
-	sudo rm -R vol-01-var-log-nginx
-	sudo rm -R vol-02-var-log-php
+## 	Ojo borra el volumen :
+	docker volume rm 04-vol-postgresql-database
+
 
 
 
