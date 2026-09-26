@@ -24,7 +24,8 @@ services:
       - 04-vol-postgresql-database:/var/lib/postgresql
 
     networks:
-      - 00-net-devel-02
+      00-net-devel-02:
+        ipv4_address: 172.30.0.2
 
 
 volumes:
