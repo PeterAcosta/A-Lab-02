@@ -131,6 +131,25 @@ revisarlo**: elimina todas las imágenes Docker locales y el volumen de datos de
 este servicio. Para las operaciones habituales, se recomienda usar directamente
 `docker compose`.
 
+
+## Conectarse a PostgreSQL desde fuera
+Si el contenedor publica el puerto `5432`, podemos conectarnos desde otro equipo utilizando `psql`:
+
+```bash
+psql -h IP_DEL_SERVIDOR -p 5432 -U postgres -d NOMBRE_BASE
+```
+
+Ejemplo (desde entorno local):
+
+```bash
+psql -h localhost -p 5432 -U postgres -d postgres
+```
+
+> El puerto `5432` debe estar publicado por Docker y permitido por el firewall del servidor.
+
+
+
+
 ## Notas de seguridad
 
 Este entorno está pensado para desarrollo y aprendizaje local, no para
