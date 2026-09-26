@@ -25,7 +25,7 @@ services:
 
     networks:
       00-net-devel-02:
-        ipv4_address: 172.30.0.2
+        ipv4_address: 172.30.0.4
 
 
 volumes:
