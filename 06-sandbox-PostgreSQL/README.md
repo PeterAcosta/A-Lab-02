@@ -1,3 +1,5 @@
+<img src="docker-postgresql.jpeg" alt="Contenedor Docker con PostgreSQL 18.6" />
+
 # Docker sandbox: PostgreSQL 18.6 sobre Debian 13 Trixie
 
 Entorno local para levantar un servidor PostgreSQL en un contenedor Docker y
